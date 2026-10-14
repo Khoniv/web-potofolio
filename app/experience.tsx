@@ -15,6 +15,14 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     id: 1,
+    company: "PT ANDRITZ Indonesia",
+    role: "IT Internship",
+    date: "Jul 2026 - present",
+    description: "Developed and implemented internal business solutions and automated digital workflows using Microsoft Power Apps and Microsoft Power Automate. Integrated SharePoint as a central data repository to streamline organizational processes and improve operational productivity.",
+    skills: ["MS Power Apps", "MS Power Automate", "SharePoint"],
+  },
+  {
+    id: 2,
     company: "Freelance",
     role: "Full Stack Web Developer",
     date: "2025 - present",
@@ -22,7 +30,7 @@ const experiences: ExperienceItem[] = [
     skills: ["Next.js", "Express.js", "Laravel", "React"],
   },
   {
-    id: 2,
+    id: 3,
     company: "Litbang IT (HIMSI)",
     role: "IT & Web Developer",
     date: "2026 - present",
@@ -30,7 +38,7 @@ const experiences: ExperienceItem[] = [
     skills: ["React.js", "Technical Operations"],
   },
   {
-    id: 3,
+    id: 4,
     company: "MDPTV",
     role: "Photography, Videography & Web Developer",
     date: "2024 - present",
@@ -38,7 +46,7 @@ const experiences: ExperienceItem[] = [
     skills: ["React.js", "Bun", "Prisma ORM", "Broadcasting"],
   },
   {
-    id: 4,
+    id: 5,
     company: "Procom (Programming Community)",
     role: "Member",
     date: "2024 - 2026",
@@ -46,7 +54,7 @@ const experiences: ExperienceItem[] = [
     skills: ["ReactJS", "RESTful APIs", "Next.js"],
   },
   {
-    id: 5,
+    id: 6,
     company: "Radio Republik Indonesia",
     role: "Intern",
     date: "Feb 2024 - May 2024",

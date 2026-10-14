@@ -27,7 +27,6 @@ export default function Contact() {
   // Chatbot State
   const [isOpenChat, setIsOpenChat] = useState(false)
   const [chatInput, setChatInput] = useState("")
-  const [userName, setUserName] = useState("Guest")
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([])
   const [isChatLoading, setIsChatLoading] = useState(false)
   const chatEndRef = useRef<HTMLDivElement>(null)
@@ -36,38 +35,6 @@ export default function Contact() {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }
 
-  // Initialize Chat from LocalStorage
-  useEffect(() => {
-    // Check for saved name
-    const savedName = localStorage.getItem("ryhar_chat_name")
-    if (savedName) {
-      setUserName(savedName)
-    } else {
-      const newName = `Guest-${Math.floor(Math.random() * 10000)}`
-      setUserName(newName)
-      localStorage.setItem("ryhar_chat_name", newName)
-    }
-
-    // Check for saved messages
-    const savedMessages = localStorage.getItem("ryhar_chat_messages")
-    if (savedMessages) {
-      try {
-        const parsed = JSON.parse(savedMessages)
-        // Convert timestamp strings back to Date objects
-        const formattedMessages = parsed.map((msg: any) => ({
-          ...msg,
-          timestamp: new Date(msg.timestamp)
-        }))
-        setChatMessages(formattedMessages)
-      } catch (e) {
-        console.error("Failed to parse saved messages", e)
-        setInitialWelcomeMessage()
-      }
-    } else {
-      setInitialWelcomeMessage()
-    }
-  }, [])
-  
   const setInitialWelcomeMessage = () => {
     setChatMessages([
       {
@@ -79,12 +46,42 @@ export default function Contact() {
     ])
   }
 
-  // Save Messages to LocalStorage whenever they change
+  // Load chat messages from SQLite database via API
   useEffect(() => {
-    if (chatMessages.length > 0) {
-      localStorage.setItem("ryhar_chat_messages", JSON.stringify(chatMessages))
+    const loadChatHistory = async () => {
+      try {
+        const res = await fetch("/api/chat/messages")
+        if (res.ok) {
+          const data = await res.json()
+          if (data.success && Array.isArray(data.messages) && data.messages.length > 0) {
+            setChatMessages(
+              data.messages.map((msg: any) => ({
+                id: msg.id,
+                sender: msg.sender,
+                text: msg.text,
+                timestamp: new Date(msg.timestamp),
+              }))
+            )
+            return
+          }
+        }
+      } catch (err) {
+        console.error("Gagal memuat riwayat obrolan dari database:", err)
+      }
+      setInitialWelcomeMessage()
     }
-  }, [chatMessages])
+
+    loadChatHistory()
+  }, [])
+
+  const handleClearChat = async () => {
+    try {
+      await fetch("/api/chat/messages", { method: "DELETE" })
+    } catch (err) {
+      console.error("Gagal menghapus riwayat chat di server:", err)
+    }
+    setInitialWelcomeMessage()
+  }
 
   useEffect(() => {
     if (isOpenChat) {
@@ -107,48 +104,10 @@ export default function Contact() {
 
     // Build history from existing messages (exclude welcome bot message if it's the only one)
     const historyMessages = chatMessages.filter(msg => msg.id !== "welcome-msg")
-    const history = [
-      {
-        role: "system" as const,
-        content: `System Context: Kamu adalah RyHar Assistant, asisten AI pribadi untuk Ahmad Rizki Hartawan (RyHar). Tugasmu adalah menjawab pertanyaan pengunjung website portofolio RyHar dengan ramah, profesional, dan informatif menggunakan bahasa Indonesia.
-        
-Gunakan panduan informasi berikut tentang RyHar untuk menjawab pertanyaan:
-
-1. **Profil & Kontak**:
-   - Nama: Ahmad Rizki Hartawan (RyHar)
-   - Peran: Fullstack Web Developer dengan pengalaman 2+ tahun
-   - Pendidikan: Universitas Multi Data Palembang (IPK: 3.84)
-   - Lokasi: Palembang, Indonesia
-   - Email: a.rizkihartawan04@gmail.com
-   - WhatsApp/Telepon: +62 895-0818-8642 (wa.me/6289508188642)
-   - LinkedIn: linkedin.com/in/rizkihartawan/
-   - Instagram: @rizki_hr4 (instagram.com/rizki_hr4)
-   - TikTok: @ryhar.dev (tiktok.com/@ryhar.dev)
-   - GitHub: github.com/RyHarJr
-   - Pendekatan: Mengutamakan clean code, desain responsif, dan UX yang intuitif.
-
-2. **Tech Stack**:
-   - Frontend: React, Next.js, Tailwind CSS, TypeScript
-   - Backend & Database: Node.js, Express.js, MySQL, MongoDB (JavaScript sebagai bahasa utama)
-
-3. **Pengalaman Kerja**:
-   - Freelance Full Stack Web Developer (2025 - present): Mengembangkan web app kustom untuk berbagai klien.
-   - Litbang IT HIMSI (2026 - present): Operator IT dan Web Developer untuk organisasi.
-   - MDPTV (2024 - present): Fotografi, Videografi, & Web Developer.
-   - Radio Republik Indonesia (2024): Magang pemeliharaan infrastruktur broadcasting dan IT.
-
-4. **Proyek Utama**:
-   - JadibotWA (jadibotwa.xyz) - Platform automasi WhatsApp tanpa kode.
-   - RyHar Panel (ryhar-panel.my.id) - Landing page & platform manajemen layanan hosting.
-   - RyHar Portfolio (ryhar.my.id) - Website portofolio pribadi.
-
-Aturan: Jawab langsung ke intinya, jangan menambahkan informasi yang tidak ada di profil ini, dan selalu bersikap ramah.`
-      },
-      ...historyMessages.map(msg => ({
-        role: msg.sender === "user" ? "user" as const : "assistant" as const,
-        content: msg.text
-      }))
-    ]
+    const history = historyMessages.map(msg => ({
+      role: msg.sender === "user" ? ("user" as const) : ("assistant" as const),
+      content: msg.text
+    }))
 
     setChatMessages(prev => [...prev, userMsg])
     setChatInput("")
@@ -162,14 +121,12 @@ Aturan: Jawab langsung ke intinya, jangan menambahkan informasi yang tidak ada d
       })
       
       if (!response.ok) {
-        throw new Error("Network response was not ok")
-      }
-
-      // If response is JSON, it means an error occurred on the backend
-      const contentType = response.headers.get("Content-Type") || ""
-      if (contentType.includes("application/json")) {
-        const data = await response.json()
-        throw new Error(data.message || "Error dari server")
+        const contentType = response.headers.get("Content-Type") || ""
+        if (contentType.includes("application/json")) {
+          const data = await response.json()
+          throw new Error(data.message || "Terjadi kesalahan pada server AI.")
+        }
+        throw new Error("Gagal terhubung ke server AI.")
       }
 
       setIsChatLoading(false)
@@ -382,7 +339,7 @@ Aturan: Jawab langsung ke intinya, jangan menambahkan informasi yang tidak ada d
             </div>
             <div className="flex items-center gap-2">
               <button 
-                onClick={setInitialWelcomeMessage} 
+                onClick={handleClearChat} 
                 className="text-text-secondary hover:text-red-500 transition-colors p-2 bg-text-secondary/5 rounded-full"
                 title="Hapus / Mulai Baru"
               >
@@ -425,16 +382,18 @@ Aturan: Jawab langsung ke intinya, jangan menambahkan informasi yang tidak ada d
                           ),
                           th: ({node, ...props}) => <th className="border border-text-secondary/20 px-3 py-2 bg-text-secondary/10 font-bold" {...props} />,
                           td: ({node, ...props}) => <td className="border border-text-secondary/20 px-3 py-2" {...props} />,
-                          code: ({node, inline, className, children, ...props}: any) => {
+                          pre: ({node, ...props}: any) => (
+                            <pre className="bg-text-primary text-background p-3 rounded-xl overflow-x-auto custom-scrollbar text-xs my-2 font-mono" {...props} />
+                          ),
+                          code: ({node, className, children, ...props}: any) => {
                             const match = /language-(\w+)/.exec(className || '')
-                            return !inline ? (
-                              <pre className="bg-text-primary text-background p-3 rounded-xl overflow-x-auto custom-scrollbar text-xs my-2 font-mono">
-                                <code className={className} {...props}>
-                                  {children}
-                                </code>
-                              </pre>
-                            ) : (
+                            const isInline = !match && !String(children).includes('\n')
+                            return isInline ? (
                               <code className="bg-thirdary/30 px-1.5 py-0.5 rounded text-xs text-text-primary font-mono font-bold" {...props}>
+                                {children}
+                              </code>
+                            ) : (
+                              <code className={className} {...props}>
                                 {children}
                               </code>
                             )

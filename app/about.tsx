@@ -27,7 +27,7 @@ export default function About() {
                     src="/images/hero.jpg" 
                     alt="Ahmad Rizki Hartawan" 
                     fill 
-                    className="object-cover transition-all duration-700 scale-100 group-hover:scale-105" 
+                    className="object-cover transition-all duration-700 scale-100 group-hover:scale-105 grayscale group-hover:grayscale-0 hover:grayscale-0" 
                     sizes="(max-width: 1024px) 100vw, 500px"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-background/80 to-transparent opacity-60 group-hover:opacity-20 transition-opacity duration-500 rounded-3xl"></div>

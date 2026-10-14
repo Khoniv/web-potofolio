@@ -128,7 +128,7 @@ export default function Project() {
                 </div>
               ))}
             </div>
-            
+
             <div className="flex gap-6 px-3">
               {projectList.map((project, index) => (
                 <div key={`mobile2-${index}`} className="w-[85vw] sm:w-[400px] flex-shrink-0">
@@ -268,7 +268,7 @@ export default function Project() {
 const projectList = [
   {
     index: 0,
-    imagePath: "/images/jadibotwa.png",
+    imagePath: "/images/jadibotwa.jpeg",
     title: "JadibotWA",
     shortDescription: "Architected a code-free WhatsApp automation platform featuring live bot logs via WebSockets for real-time data, status monitoring, and scalable REST APIs.",
     createdAt: "2025-05-10",
@@ -280,7 +280,7 @@ const projectList = [
   },
   {
     index: 1,
-    imagePath: "/images/ryharpanel.png",
+    imagePath: "/images/ryharpanel.jpeg",
     title: "RyHar Panel",
     shortDescription: "Built a modern landing page and management platform for a Pterodactyl hosting service, focused on fast, responsive, and conversion-driven user experience.",
     createdAt: "2025-08-05",
@@ -292,7 +292,7 @@ const projectList = [
   },
   {
     index: 2,
-    imagePath: "/images/hero.jpg",
+    imagePath: "/images/portofolio.jpeg",
     title: "RyHar Portfolio",
     shortDescription: "Developed a personal portfolio website with a modern, responsive design focused on user experience to showcase profile, skills, and completed projects.",
     createdAt: "2026-07-20",
@@ -301,5 +301,17 @@ const projectList = [
     githubUrl: "https://github.com/RyHarJr/portofoliov2",
     liveDemoUrl: "https://ryhar.my.id",
     isPrivateRepo: false,
+  },
+  {
+    index: 3,
+    imagePath: "/images/restapi.jpeg",
+    title: "RyHar REST API",
+    shortDescription: "Developed a scalable REST API with Node.js and Express.js, featuring JWT authentication, database integration, and comprehensive error handling.",
+    createdAt: "2026-07-20",
+    features: ["JWT Authentication", "Database Integration", "Comprehensive Error Handling"],
+    tech: ["Node.js", "Express.js", "Prisma ORM", "PostgreSQL"],
+    githubUrl: "https://github.com/RyHarJr",
+    liveDemoUrl: "https://dash.ryhar.my.id",
+    isPrivateRepo: true,
   },
 ]
