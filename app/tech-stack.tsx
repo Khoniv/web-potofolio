@@ -73,7 +73,7 @@ export default function TechStack() {
                     </span>
                   </span>
                   {/* Belakang */}
-                  <span className="absolute inset-0 flex flex-col items-center justify-center gap-2 rounded-2xl bg-night border border-white/10 p-4 text-center [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                  <span className="absolute inset-0 flex flex-col items-center justify-center gap-2 rounded-2xl bg-night/75 backdrop-blur-xl border border-white/10 p-4 text-center [backface-visibility:hidden] [transform:rotateY(180deg)]">
                     <span className="font-mono text-[10px] uppercase tracking-widest text-white/60">
                       {tech.category}
                     </span>

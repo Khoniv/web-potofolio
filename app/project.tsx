@@ -54,7 +54,7 @@ export default function Project() {
                 className={`cursor-pointer px-4 py-2 rounded-full text-[13px] font-medium transition-all duration-300 border ${
                   isActive
                     ? "bg-ink text-paper border-ink"
-                    : "bg-surface text-muted border-border hover:border-ink/40 hover:text-ink"
+                    : "bg-surface/60 backdrop-blur-md text-muted border-border hover:border-ink/40 hover:text-ink"
                 }`}
               >
                 {tab.label}

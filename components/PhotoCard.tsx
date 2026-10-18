@@ -14,7 +14,7 @@ export default function PhotoCard({ priority = false }: { priority?: boolean }) 
           className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 scale-100 group-hover:scale-[1.04] transition-all duration-700 ease-out"
         />
         {/* Badge GPA */}
-        <div className="absolute top-4 left-4 bg-ink text-paper rounded-xl px-3.5 py-2.5 shadow-lg transition-transform duration-500 group-hover:-translate-y-0.5">
+        <div className="absolute top-4 left-4 bg-ink/70 backdrop-blur-md border border-white/10 text-paper rounded-xl px-3.5 py-2.5 shadow-lg transition-transform duration-500 group-hover:-translate-y-0.5">
           <p className="font-mono text-[10px] uppercase tracking-widest text-paper/60">GPA</p>
           <p className="font-display font-bold text-sm leading-tight">3.78 / 4.00</p>
         </div>
@@ -28,7 +28,7 @@ export default function PhotoCard({ priority = false }: { priority?: boolean }) 
         </div>
       </div>
       {/* Kartu degree melayang */}
-      <div className="absolute -bottom-5 -right-2 sm:-right-4 bg-ink text-paper rounded-xl px-4 py-3 shadow-[0_12px_36px_rgba(22,22,26,0.28)] transition-all duration-500 group-hover:-translate-y-1 group-hover:rotate-1">
+      <div className="absolute -bottom-5 -right-2 sm:-right-4 bg-ink/70 backdrop-blur-md border border-white/10 text-paper rounded-xl px-4 py-3 shadow-[0_12px_36px_rgba(22,22,26,0.28)] transition-all duration-500 group-hover:-translate-y-1 group-hover:rotate-1">
         <p className="font-mono text-[10px] uppercase tracking-widest text-paper/60">Degree</p>
         <p className="font-display font-bold text-sm leading-tight mt-0.5">S.Kom. Informatics</p>
       </div>
