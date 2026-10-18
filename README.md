@@ -1,56 +1,46 @@
-# RyHar Portfolio v2
+# Khonif Zakaria — Portfolio (NivDev.exe)
 
-A modern, interactive, and responsive personal portfolio website built to showcase projects, skills, and experience.
+Portfolio pribadi **Khonif Zakaria** dengan tema cyberpunk "NivDev.exe".
+Menampilkan proyek, pengalaman, tech stack, asisten chat AI, dan formulir kontak.
 
-## 🌐 Live Demo
+## ✨ Fitur
 
-Check out the live website here: **[https://ryhar.my.id](https://ryhar.my.id)**
-
-## 🚀 Features
-
-- **Modern UI/UX**: Sleek design with premium aesthetics, carefully curated typography, and smooth micro-interactions.
-- **Interactive Animations**: Powered by Framer Motion for scroll reveals, hover effects, and fluid modal transitions.
-- **Project Showcase**: Detailed project cards with technology stack tags, features lists, and links to source code / live demos. (Includes support for private repositories).
-- **Responsive Design**: Fully optimized for mobile, tablet, and desktop viewing (includes a responsive infinite-scroll slider for mobile).
+- **Tema Cyberpunk NivDev.exe**: UI gelap bernuansa neon dengan animasi halus (Motion)
+- **AI Chat Assistant**: asisten chat streaming (`/api/chat`) — butuh `ROUTER_APIKEY` & `ROUTER_BASE_URL`
+- **Formulir Kontak**: kirim pesan via email dengan nodemailer (`/api/send-email`)
+- **Project Showcase**: kartu proyek dengan tech stack dan tautan
+- **Download CV**: tombol unduh CV langsung dari hero section
+- **Responsif**: mobile, tablet, dan desktop
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [Next.js](https://nextjs.org/) (App Router)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Framework**: Next.js 16 (App Router)
+- **Bahasa**: TypeScript
+- **UI**: React 19, Tailwind CSS v4, Motion
+- **AI Chat**: OpenAI SDK via endpoint yang kompatibel OpenRouter; riwayat chat tersimpan lokal (`data/chat_store.json`)
+- **Email**: nodemailer
 
-## 💻 Getting Started
-
-First, clone the repository and install the dependencies:
+## 🚀 Menjalankan Lokal
 
 ```bash
-# Clone the repository
-git clone https://github.com/RyHarJr/portofoliov2.git
-
-# Navigate to the project directory
-cd portofoliov2
-
-# Install dependencies
+git clone https://github.com/Khoniv/web-potofolio.git
+cd web-potofolio
 npm install
-# or yarn install / pnpm install
-```
-
-Then, run the development server:
-
-```bash
 npm run dev
-# or yarn dev / pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka [http://localhost:3000](http://localhost:3000).
 
-## 📁 Project Structure
+### Environment variables
 
-- `app/`: Next.js App Router pages and layouts.
-- `components/`: Reusable React components (animations, UI elements, etc.).
-- `public/`: Static assets such as images and icons.
+Buat file `.env` di root proyek:
 
-## 📄 License
+```
+ROUTER_APIKEY=...     # API key untuk AI chat
+ROUTER_BASE_URL=...   # base URL endpoint yang kompatibel OpenRouter
+EMAIL_USER=...        # akun email pengirim (nodemailer)
+EMAIL_PASS=...        # app password email
+NEXT_PUBLIC_BASE_URL=https://domain-kamu.com   # dipakai robots.ts & sitemap.ts
+```
 
-This project is open-source and available under the [MIT License](LICENSE).
+Tanpa env di atas, AI chat dan contact form tidak aktif — sisa situs tetap jalan normal.

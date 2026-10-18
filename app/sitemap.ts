@@ -1,7 +1,9 @@
 import { MetadataRoute } from "next"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://ryhar.my.id"
+  // TODO: set NEXT_PUBLIC_BASE_URL di environment ke domain production kamu.
+  // Jangan biarkan fallback ini menunjuk ke domain orang lain.
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://your-domain.com"
 
   return [
     {
