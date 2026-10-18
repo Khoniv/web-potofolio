@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg-pe" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1122" />
+      <stop offset="100%" stop-color="#050811" />
+    </linearGradient>
+    <linearGradient id="header-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f0ff" />
+      <stop offset="50%" stop-color="#38f4ff" />
+      <stop offset="100%" stop-color="#00ff66" />
+    </linearGradient>
+    <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg-pe)" />
+
+  <!-- Grid Lines -->
+  <g opacity="0.08" stroke="#00f0ff" stroke-width="1">
+    <line x1="0" y1="50" x2="800" y2="50" />
+    <line x1="0" y1="100" x2="800" y2="100" />
+    <line x1="0" y1="150" x2="800" y2="150" />
+    <line x1="0" y1="200" x2="800" y2="200" />
+    <line x1="0" y1="250" x2="800" y2="250" />
+    <line x1="0" y1="300" x2="800" y2="300" />
+    <line x1="0" y1="350" x2="800" y2="350" />
+    <line x1="0" y1="400" x2="800" y2="400" />
+    <line x1="0" y1="450" x2="800" y2="450" />
+    <line x1="80" y1="0" x2="80" y2="500" />
+    <line x1="160" y1="0" x2="160" y2="500" />
+    <line x1="240" y1="0" x2="240" y2="500" />
+    <line x1="320" y1="0" x2="320" y2="500" />
+    <line x1="400" y1="0" x2="400" y2="500" />
+    <line x1="480" y1="0" x2="480" y2="500" />
+    <line x1="560" y1="0" x2="560" y2="500" />
+    <line x1="640" y1="0" x2="640" y2="500" />
+    <line x1="720" y1="0" x2="720" y2="500" />
+  </g>
+
+  <!-- Desktop App Window Frame -->
+  <rect x="40" y="35" width="720" height="430" rx="14" fill="#090e1c" stroke="#00f0ff" stroke-opacity="0.3" stroke-width="1.5" />
+  
+  <!-- Window Titlebar -->
+  <rect x="40" y="35" width="720" height="42" rx="14" fill="#0f172a" />
+  <circle cx="68" cy="56" r="6" fill="#ff007f" />
+  <circle cx="88" cy="56" r="6" fill="#ffaa00" />
+  <circle cx="108" cy="56" r="6" fill="#00ff66" />
+  <text x="400" y="61" text-anchor="middle" fill="#e2f1ff" font-family="'Courier New', monospace" font-size="12" font-weight="bold" letter-spacing="2">PARKEAZY - DESKTOP PARKING MANAGEMENT SYSTEM [C# .NET]</text>
+
+  <!-- Left: Real Bay Grid Layout P1-P12 -->
+  <rect x="65" y="95" width="315" height="345" rx="10" fill="#050811" stroke="#00f0ff" stroke-opacity="0.2" />
+  <text x="85" y="125" fill="#00f0ff" font-family="'Courier New', monospace" font-size="12" font-weight="bold">// REAL-TIME BAY MONITOR [P1 - P12]</text>
+
+  <!-- Grid of 12 Parking Bays -->
+  <!-- Row 1 -->
+  <rect x="85" y="145" width="60" height="48" rx="6" fill="#00ff66" fill-opacity="0.15" stroke="#00ff66" stroke-width="1.5" />
+  <text x="115" y="168" text-anchor="middle" fill="#00ff66" font-family="monospace" font-size="11" font-weight="bold">P1</text>
+  <text x="115" y="184" text-anchor="middle" fill="#7f99b8" font-family="monospace" font-size="8">CAR</text>
+
+  <rect x="155" y="145" width="60" height="48" rx="6" fill="#ff007f" fill-opacity="0.15" stroke="#ff007f" stroke-width="1.5" />
+  <text x="185" y="168" text-anchor="middle" fill="#ff007f" font-family="monospace" font-size="11" font-weight="bold">P2</text>
+  <text x="185" y="184" text-anchor="middle" fill="#ff007f" font-family="monospace" font-size="8">BUSY</text>
+
+  <rect x="225" y="145" width="60" height="48" rx="6" fill="#00ff66" fill-opacity="0.15" stroke="#00ff66" stroke-width="1.5" />
+  <text x="255" y="168" text-anchor="middle" fill="#00ff66" font-family="monospace" font-size="11" font-weight="bold">P3</text>
+  <text x="255" y="184" text-anchor="middle" fill="#7f99b8" font-family="monospace" font-size="8">MOTOR</text>
+
+  <rect x="295" y="145" width="65" height="48" rx="6" fill="#00ff66" fill-opacity="0.15" stroke="#00ff66" stroke-width="1.5" />
+  <text x="327" y="168" text-anchor="middle" fill="#00ff66" font-family="monospace" font-size="11" font-weight="bold">P4</text>
+  <text x="327" y="184" text-anchor="middle" fill="#7f99b8" font-family="monospace" font-size="8">FREE</text>
+
+  <!-- Row 2 -->
+  <rect x="85" y="205" width="60" height="48" rx="6" fill="#ff007f" fill-opacity="0.15" stroke="#ff007f" stroke-width="1.5" />
+  <text x="115" y="228" text-anchor="middle" fill="#ff007f" font-family="monospace" font-size="11" font-weight="bold">P5</text>
+  <text x="115" y="244" text-anchor="middle" fill="#ff007f" font-family="monospace" font-size="8">BUSY</text>
+
+  <rect x="155" y="205" width="60" height="48" rx="6" fill="#00ff66" fill-opacity="0.15" stroke="#00ff66" stroke-width="1.5" />
+  <text x="185" y="228" text-anchor="middle" fill="#00ff66" font-family="monospace" font-size="11" font-weight="bold">P6</text>
+  <text x="185" y="244" text-anchor="middle" fill="#7f99b8" font-family="monospace" font-size="8">CAR</text>
+
+  <rect x="225" y="205" width="60" height="48" rx="6" fill="#ff007f" fill-opacity="0.15" stroke="#ff007f" stroke-width="1.5" />
+  <text x="255" y="228" text-anchor="middle" fill="#ff007f" font-family="monospace" font-size="11" font-weight="bold">P7</text>
+  <text x="255" y="244" text-anchor="middle" fill="#ff007f" font-family="monospace" font-size="8">BUSY</text>
+
+  <rect x="295" y="205" width="65" height="48" rx="6" fill="#00ff66" fill-opacity="0.15" stroke="#00ff66" stroke-width="1.5" />
+  <text x="327" y="228" text-anchor="middle" fill="#00ff66" font-family="monospace" font-size="11" font-weight="bold">P8</text>
+  <text x="327" y="244" text-anchor="middle" fill="#7f99b8" font-family="monospace" font-size="8">FREE</text>
+
+  <!-- Row 3 -->
+  <rect x="85" y="265" width="60" height="48" rx="6" fill="#00ff66" fill-opacity="0.15" stroke="#00ff66" stroke-width="1.5" />
+  <text x="115" y="288" text-anchor="middle" fill="#00ff66" font-family="monospace" font-size="11" font-weight="bold">P9</text>
+  <text x="115" y="304" text-anchor="middle" fill="#7f99b8" font-family="monospace" font-size="8">FREE</text>
+
+  <rect x="155" y="265" width="60" height="48" rx="6" fill="#00ff66" fill-opacity="0.15" stroke="#00ff66" stroke-width="1.5" />
+  <text x="185" y="288" text-anchor="middle" fill="#00ff66" font-family="monospace" font-size="11" font-weight="bold">P10</text>
+  <text x="185" y="304" text-anchor="middle" fill="#7f99b8" font-family="monospace" font-size="8">FREE</text>
+
+  <rect x="225" y="265" width="60" height="48" rx="6" fill="#ff007f" fill-opacity="0.15" stroke="#ff007f" stroke-width="1.5" />
+  <text x="255" y="288" text-anchor="middle" fill="#ff007f" font-family="monospace" font-size="11" font-weight="bold">P11</text>
+  <text x="255" y="304" text-anchor="middle" fill="#ff007f" font-family="monospace" font-size="8">BUSY</text>
+
+  <rect x="295" y="265" width="65" height="48" rx="6" fill="#00ff66" fill-opacity="0.15" stroke="#00ff66" stroke-width="1.5" />
+  <text x="327" y="288" text-anchor="middle" fill="#00ff66" font-family="monospace" font-size="11" font-weight="bold">P12</text>
+  <text x="327" y="304" text-anchor="middle" fill="#7f99b8" font-family="monospace" font-size="8">FREE</text>
+
+  <text x="85" y="348" fill="#7f99b8" font-family="monospace" font-size="10">OCCUPIED: 4/12 | VACANT: 8/12</text>
+  <text x="85" y="370" fill="#00ff66" font-family="monospace" font-size="10">DATABASE: MSSQL SERVER CONNECTED [dbParkEazy]</text>
+
+  <!-- Right: Guna.UI2 Operations Console -->
+  <rect x="400" y="95" width="335" height="345" rx="10" fill="#050811" stroke="#00f0ff" stroke-opacity="0.2" />
+  <text x="420" y="125" fill="#00f0ff" font-family="'Courier New', monospace" font-size="12" font-weight="bold">// VEHICLE TRANSACTION CONSOLE</text>
+
+  <!-- Form Inputs -->
+  <rect x="420" y="145" width="295" height="36" rx="6" fill="#0a1222" stroke="#00f0ff" stroke-opacity="0.25" />
+  <text x="435" y="167" fill="#e2f1ff" font-family="monospace" font-size="11">PLATE_NO: [ R 4567 AA ]</text>
+
+  <rect x="420" y="195" width="295" height="36" rx="6" fill="#0a1222" stroke="#00f0ff" stroke-opacity="0.25" />
+  <text x="435" y="217" fill="#7f99b8" font-family="monospace" font-size="11">TYPE: MOTORCYCLE (TARIFF: Rp 2.000/HR)</text>
+
+  <rect x="420" y="245" width="140" height="38" rx="6" fill="#00f0ff" fill-opacity="0.2" stroke="#00f0ff" stroke-width="1.5" />
+  <text x="490" y="269" text-anchor="middle" fill="#00f0ff" font-family="monospace" font-size="11" font-weight="bold">CHECK IN</text>
+
+  <rect x="575" y="245" width="140" height="38" rx="6" fill="#ff007f" fill-opacity="0.2" stroke="#ff007f" stroke-width="1.5" />
+  <text x="645" y="269" text-anchor="middle" fill="#ff007f" font-family="monospace" font-size="11" font-weight="bold">CHECK OUT</text>
+
+  <!-- Tech tags -->
+  <g transform="translate(420, 310)">
+    <rect width="70" height="24" rx="4" fill="#0f172a" stroke="#00f0ff" stroke-opacity="0.4" />
+    <text x="35" y="16" text-anchor="middle" fill="#00f0ff" font-family="monospace" font-size="10" font-weight="bold">C# .NET</text>
+
+    <rect x="80" width="85" height="24" rx="4" fill="#0f172a" stroke="#00f0ff" stroke-opacity="0.4" />
+    <text x="122" y="16" text-anchor="middle" fill="#00f0ff" font-family="monospace" font-size="10" font-weight="bold">GUNA.UI2</text>
+
+    <rect x="175" width="115" height="24" rx="4" fill="#0f172a" stroke="#00f0ff" stroke-opacity="0.4" />
+    <text x="232" y="16" text-anchor="middle" fill="#00f0ff" font-family="monospace" font-size="10" font-weight="bold">SQL SERVER</text>
+  </g>
+
+  <text x="420" y="375" fill="#7f99b8" font-family="monospace" font-size="10">REPO: github.com/Khoniv/park-eazy</text>
+  <text x="420" y="395" fill="#00ff66" font-family="monospace" font-size="10">AUTHOR: KHONIF ZAKARIA (NIVDEV)</text>
+</svg>

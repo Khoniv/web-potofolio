@@ -1,46 +1,52 @@
 import type { Metadata } from "next"
-import { Poppins } from "next/font/google"
+import { JetBrains_Mono, Poppins } from "next/font/google"
 import "../styles/globals.css"
 import PageLoader from "@/components/PageLoader"
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "600"],
+  weight: ["400", "600", "700"],
   variable: "--font-poppins",
 })
 
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-mono",
+})
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://ryhar.my.id"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://khonifzakaria.dev"),
   title: {
-    default: "RyHar | Portfolio",
-    template: "%s | RyHar Portfolio",
+    default: "Khonif Zakaria // Cyberpunk Developer Portfolio",
+    template: "%s | Khonif Zakaria",
   },
-  description: "Personal portfolio of RyHar. Software Developer specializing in Next.js, Node.js, and modern web development.",
-  keywords: ["RyHar", "Portfolio", "Software Developer", "Web Development", "Backend", "Frontend", "Next.js", "React", "Node.js"],
-  authors: [{ name: "RyHar" }],
-  creator: "RyHar",
+  description: "Personal portfolio of Khonif Zakaria. Informatics graduate, Cyberpunk Developer specializing in Next.js, React, Laravel, Flutter, C#, and Unity Engine.",
+  keywords: ["Khonif Zakaria", "Cyberpunk Portfolio", "Software Developer", "Web Developer", "Game Developer", "Unity", "Next.js", "React", "Laravel", "Flutter"],
+  authors: [{ name: "Khonif Zakaria" }],
+  creator: "Khonif Zakaria",
   openGraph: {
     type: "website",
-    locale: "id_ID",
+    locale: "en_US",
     url: "/",
-    title: "RyHar | Portfolio",
-    description: "Personal portfolio of RyHar. Software Developer specializing in Next.js, Node.js, and modern web development.",
-    siteName: "RyHar Portfolio",
+    title: "Khonif Zakaria // Cyberpunk Developer",
+    description: "Personal portfolio of Khonif Zakaria. Informatics graduate, Software, Web, Mobile, and Game Developer.",
+    siteName: "Khonif Zakaria Portfolio",
     images: [
       {
         url: "/images/hero.jpg",
         width: 1200,
         height: 630,
-        alt: "RyHar Portfolio",
+        alt: "Khonif Zakaria Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "RyHar | Portfolio",
-    description: "Personal portfolio of RyHar. Software Developer specializing in Next.js, Node.js, and modern web development.",
+    title: "Khonif Zakaria // Cyberpunk Developer",
+    description: "Personal portfolio of Khonif Zakaria. Informatics graduate, Software, Web, Mobile, and Game Developer.",
     images: ["/images/hero.jpg"],
-    creator: "@RyHar",
+    creator: "@khonifzakaria",
   },
   icons: {
     icon: "/images/hero.jpg",
@@ -50,9 +56,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  verification: {
-    google: "ZbLhiilDbtLDyIx5eH6Jeoe1jPkXNKId-LhXG1HhLWA",
-  },
 }
 
 export default function RootLayout({
@@ -61,12 +64,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${poppins.className} antialiased`}>
+    <html lang="en" className="dark">
+      <body className={`${poppins.variable} ${jetbrainsMono.variable} font-sans antialiased selection:bg-[#00f0ff] selection:text-black`}>
         <PageLoader />
         {children}
       </body>
     </html>
   )
 }
-

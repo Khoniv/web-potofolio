@@ -1,85 +1,74 @@
-import React, { useRef } from "react"
+"use client"
+import React, { useRef, useState } from "react"
 
 interface GlareHoverProps {
-  width?: string
-  height?: string
-  background?: string
-  borderRadius?: string
-  borderColor?: string
   children?: React.ReactNode
-  glareColor?: string
-  glareOpacity?: number
-  glareAngle?: number
-  glareSize?: number
-  transitionDuration?: number
-  playOnce?: boolean
   className?: string
   style?: React.CSSProperties
 }
 
-const GlareHover: React.FC<GlareHoverProps> = ({ children, glareColor = "#ffffff", glareOpacity = 0.5, glareAngle = -45, glareSize = 250, transitionDuration = 650, playOnce = false, className = "", style = {} }) => {
-  const hex = glareColor.replace("#", "")
-  let rgba = glareColor
-  if (/^[\dA-Fa-f]{6}$/.test(hex)) {
-    const r = parseInt(hex.slice(0, 2), 16)
-    const g = parseInt(hex.slice(2, 4), 16)
-    const b = parseInt(hex.slice(4, 6), 16)
-    rgba = `rgba(${r}, ${g}, ${b}, ${glareOpacity})`
-  } else if (/^[\dA-Fa-f]{3}$/.test(hex)) {
-    const r = parseInt(hex[0] + hex[0], 16)
-    const g = parseInt(hex[1] + hex[1], 16)
-    const b = parseInt(hex[2] + hex[2], 16)
-    rgba = `rgba(${r}, ${g}, ${b}, ${glareOpacity})`
+const GlareHover: React.FC<GlareHoverProps> = ({ 
+  children, 
+  className = "", 
+  style = {} 
+}) => {
+  const [isHovered, setIsHovered] = useState(false)
+  const [hoverKey, setHoverKey] = useState(0)
+  const containerRef = useRef<HTMLDivElement | null>(null)
+
+  const handleMouseEnter = () => {
+    setIsHovered(true)
+    setHoverKey((prev) => prev + 1)
   }
 
-  const overlayRef = useRef<HTMLDivElement | null>(null)
-
-  const animateIn = () => {
-    const el = overlayRef.current
-    if (!el) return
-
-    el.style.transition = "none"
-    el.style.backgroundPosition = "-100% -100%, 0 0"
-    el.style.transition = `${transitionDuration}ms ease`
-    el.style.backgroundPosition = "100% 100%, 0 0"
-  }
-
-  const animateOut = () => {
-    const el = overlayRef.current
-    if (!el) return
-
-    if (playOnce) {
-      el.style.transition = "none"
-      el.style.backgroundPosition = "-100% -100%, 0 0"
-    } else {
-      el.style.transition = `${transitionDuration}ms ease`
-      el.style.backgroundPosition = "-100% -100%, 0 0"
-    }
-  }
-
-  const overlayStyle: React.CSSProperties = {
-    position: "absolute",
-    inset: 0,
-    background: `linear-gradient(${glareAngle}deg,
-        hsla(0,0%,0%,0) 60%,
-        ${rgba} 70%,
-        hsla(0,0%,0%,0) 100%)`,
-    backgroundSize: `${glareSize}% ${glareSize}%, 100% 100%`,
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "-100% -100%, 0 0",
-    pointerEvents: "none",
+  const handleMouseLeave = () => {
+    setIsHovered(false)
   }
 
   return (
     <div
-      className={`relative overflow-hidden ${className}`}
-      style={{
-        ...style,
-      }}
-      onMouseEnter={animateIn}
-      onMouseLeave={animateOut}
+      ref={containerRef}
+      className={`relative overflow-hidden group/cyber-glare transition-all duration-300 ${className}`}
+      style={style}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      <div ref={overlayRef} style={overlayStyle} />
+      {/* 1. Cyber Laser Scanline Sweep - runs exactly 1x per hover */}
+      {isHovered && (
+        <div 
+          key={hoverKey}
+          className="absolute inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#00f0ff] to-transparent pointer-events-none z-30 animate-cyber-laser" 
+        />
+      )}
+
+      {/* 2. Cyber Hologram Neon Glare Beam (Cyan to Magenta pulse) */}
+      <div 
+        className={`absolute inset-0 pointer-events-none z-20 transition-all duration-700 ease-out ${
+          isHovered 
+            ? "translate-x-full opacity-100" 
+            : "-translate-x-full opacity-0"
+        }`}
+        style={{
+          background: "linear-gradient(105deg, transparent 30%, rgba(0, 240, 255, 0.22) 45%, rgba(255, 0, 127, 0.2) 55%, transparent 70%)",
+          filter: "drop-shadow(0 0 12px rgba(0, 240, 255, 0.4))",
+        }}
+      />
+
+      {/* 3. Cyber Data Grid Glitch Overlay */}
+      <div 
+        className={`absolute inset-0 pointer-events-none z-10 transition-opacity duration-500 bg-[linear-gradient(to_right,rgba(0,240,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,240,255,0.06)_1px,transparent_1px)] bg-[size:16px_16px] ${
+          isHovered ? "opacity-100" : "opacity-0"
+        }`} 
+      />
+
+      {/* 4. Cyber Corner Target HUD Reticles */}
+      <div className={`pointer-events-none z-30 transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}>
+        <span className="absolute top-1 left-1 w-2.5 h-2.5 border-t-2 border-l-2 border-[#00f0ff]" />
+        <span className="absolute top-1 right-1 w-2.5 h-2.5 border-t-2 border-r-2 border-[#00f0ff]" />
+        <span className="absolute bottom-1 left-1 w-2.5 h-2.5 border-b-2 border-l-2 border-[#ff007f]" />
+        <span className="absolute bottom-1 right-1 w-2.5 h-2.5 border-b-2 border-r-2 border-[#00ff66]" />
+      </div>
+
       {children}
     </div>
   )

@@ -1,118 +1,148 @@
-import ScrollVelocity from "@/components/ScrollVelocity"
+"use client"
 import FadeDown from "@/components/animations/FadeDown"
 import Fade from "@/components/animations/Fade"
 import FadeLeft from "@/components/animations/FadeLeft"
 import Image from "next/image"
 
 export default function About() {
-  const velocity = 50
-
   return (
     <>
-      <section id="about" className="w-full max-w-7xl mx-auto py-24 md:py-32 cursor-default bg-background overflow-hidden border-t border-text-secondary/10">
+      <section id="about" className="w-full max-w-7xl mx-auto py-16 sm:py-20 md:py-28 lg:py-32 cursor-default relative overflow-hidden border-t border-[#00f0ff]/20">
+        
+        {/* Cyberpunk Section Header */}
         <FadeDown>
-          <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16 md:mb-24 w-full text-left">
-            <h2 className="text-sm font-bold tracking-[0.2em] text-text-secondary uppercase mb-4">Discover</h2>
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-text-primary tracking-tighter">About Me</h3>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-10 sm:mb-14 md:mb-16 w-full text-left font-mono">
+            <div className="flex items-center gap-2 text-xs font-bold tracking-[0.25em] text-[#00f0ff] uppercase mb-2">
+              <span className="text-[#ff007f]">&gt;</span> SYSTEM_KERNEL // PROFILE
+            </div>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight flex flex-wrap items-baseline gap-2 sm:gap-3">
+              About The Operator
+              <span className="text-xs text-[#00ff66] border border-[#00ff66]/40 px-2 py-0.5 rounded font-mono font-normal">
+                LVL.999
+              </span>
+            </h2>
           </div>
         </FadeDown>
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 px-4 sm:px-6 md:px-12 items-center">
           
-          <div className="lg:col-span-5 hidden lg:flex flex-col items-center lg:items-center justify-center relative">
-            <div className="w-full max-w-[350px] lg:max-w-[450px] relative">
+          {/* Cyberpunk Photo Card - Responsive for both mobile and desktop */}
+          <div className="lg:col-span-5 flex flex-col items-center justify-center relative">
+            <div className="w-full max-w-[280px] sm:max-w-[340px] md:max-w-[380px] lg:max-w-[420px] relative">
               <Fade>
-                <div className="relative z-10 p-2 bg-background border border-text-secondary/10 rounded-3xl shadow-2xl overflow-hidden aspect-[4/5] w-full group transition-all duration-500 hover:shadow-[0_20px_40px_-5px_rgb(0,0,0,0.15)] dark:hover:shadow-[0_20px_40px_-5px_rgba(255,255,255,0.05)] hover:-translate-y-1">
+                {/* HUD Corners */}
+                <span className="absolute -top-2 -left-2 w-5 sm:w-6 h-5 sm:h-6 border-t-2 border-l-2 border-[#00f0ff] z-20" />
+                <span className="absolute -top-2 -right-2 w-5 sm:w-6 h-5 sm:h-6 border-t-2 border-r-2 border-[#ff007f] z-20" />
+                <span className="absolute -bottom-2 -left-2 w-5 sm:w-6 h-5 sm:h-6 border-b-2 border-l-2 border-[#00ff66] z-20" />
+                <span className="absolute -bottom-2 -right-2 w-5 sm:w-6 h-5 sm:h-6 border-b-2 border-r-2 border-[#00f0ff] z-20" />
+
+                <div className="relative z-10 p-1.5 sm:p-2 bg-[#090e1c]/90 border border-[#00f0ff]/30 rounded-2xl shadow-[0_0_35px_rgba(0,240,255,0.18)] overflow-hidden aspect-[4/5] w-full group transition-all duration-500 hover:border-[#00f0ff] backdrop-blur-md">
                   <Image 
-                    src="/images/hero.jpg" 
-                    alt="Ahmad Rizki Hartawan" 
+                    src="/images/khonif-informal.png" 
+                    alt="Khonif Zakaria" 
                     fill 
-                    className="object-cover transition-all duration-700 scale-100 group-hover:scale-105 grayscale group-hover:grayscale-0 hover:grayscale-0" 
-                    sizes="(max-width: 1024px) 100vw, 500px"
+                    priority
+                    className="object-cover object-top transition-all duration-700 scale-100 group-hover:scale-102" 
+                    sizes="(max-width: 1024px) 90vw, 420px"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-background/80 to-transparent opacity-60 group-hover:opacity-20 transition-opacity duration-500 rounded-3xl"></div>
+                  {/* Seamless blending overlays */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#090e1c] via-[#090e1c]/30 to-transparent opacity-80 group-hover:opacity-50 transition-opacity duration-500 pointer-events-none" />
+                  <div className="absolute inset-x-0 bottom-0 h-24 sm:h-28 bg-gradient-to-t from-[#090e1c] to-transparent pointer-events-none" />
+
+                  {/* Terminal overlay tag inside photo */}
+                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 bg-[#050811]/90 backdrop-blur-md border border-[#00f0ff]/30 p-2 sm:p-3 rounded-lg font-mono text-[11px] sm:text-xs flex justify-between items-center text-[#7f99b8] z-10 shadow-lg">
+                    <span className="text-[#00f0ff] font-bold">DEV_ID: #KHONIF-2026</span>
+                    <span className="text-[#00ff66] font-bold">ONLINE</span>
+                  </div>
                 </div>
-                <div className="absolute -bottom-8 -left-8 text-8xl lg:text-9xl font-black text-text-secondary/5 select-none pointer-events-none tracking-tighter mix-blend-multiply dark:mix-blend-screen z-0">DEV.</div>
               </Fade>
             </div>
           </div>
 
+          {/* Details & Specs */}
           <div className="lg:col-span-7 flex flex-col justify-center">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
-              <div className="flex flex-col">
+            
+            {/* Bio Terminal Logs */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 font-mono">
+              <div className="p-4 sm:p-5 md:p-6 rounded-xl bg-[#090e1c]/80 border border-[#00f0ff]/20 hover:border-[#00f0ff]/50 transition-colors shadow-lg">
                 <Fade>
-                  <h4 className="text-lg md:text-xl font-bold text-text-primary mb-4 flex items-center border-b border-text-secondary/20 pb-4">Who Am I</h4>
-                  <p className="text-base text-text-secondary leading-relaxed font-medium">Saya Full Stack Developer yang berpengalaman dalam merancang dan mengembangkan aplikasi web menggunakan Node.js, Express.js, Laravel, React, Next.js, TypeScript, Prisma, dan MySQL. Saya terampil dalam membangun REST APIs, mengintegrasikan layanan pihak ketiga, dan sistem otomatisasi.</p>
+                  <div className="flex items-center gap-2 text-xs text-[#00f0ff] mb-2 sm:mb-3 font-bold uppercase">
+                    <span className="text-[#ff007f]">&gt;</span> 01 // WHO_AM_I
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">Operator Profile</h3>
+                  <p className="text-xs md:text-sm text-[#a1b8d4] leading-relaxed font-sans font-normal">
+                    I am Khonif Zakaria (23), an Informatics graduate from Universitas Amikom Purwokerto graduating Cumlaude (GPA 3.78 / 4.00). Experienced in engineering modern web architectures, scalable backend services, responsive mobile applications, C# desktop systems, and interactive 3D educational game engines with Unity.
+                  </p>
                 </Fade>
               </div>
               
-              <div className="flex flex-col">
+              <div className="p-4 sm:p-5 md:p-6 rounded-xl bg-[#090e1c]/80 border border-[#00f0ff]/20 hover:border-[#00f0ff]/50 transition-colors shadow-lg">
                 <Fade>
-                  <h4 className="text-lg md:text-xl font-bold text-text-primary mb-4 flex items-center border-b border-text-secondary/20 pb-4">My Approach</h4>
-                  <p className="text-base text-text-secondary leading-relaxed font-medium">Saya berkomitmen untuk memberikan solusi yang efisien, mudah dikelola, dan skalabel melalui praktik terbaik pengembangan perangkat lunak (best software development practices).</p>
+                  <div className="flex items-center gap-2 text-xs text-[#00f0ff] mb-2 sm:mb-3 font-bold uppercase">
+                    <span className="text-[#ff007f]">&gt;</span> 02 // METHODOLOGY
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">Core Engineering</h3>
+                  <p className="text-xs md:text-sm text-[#a1b8d4] leading-relaxed font-sans font-normal">
+                    Focused on analytical problem solving, clean code architecture, and structured execution using verified methodologies such as the Game Development Life Cycle (GDLC). Fast learner with strong proficiency in cross-functional agile collaboration.
+                  </p>
                 </Fade>
               </div>
             </div>
 
-            <div className="mt-16 md:mt-20">
+            {/* Operator Telemetry Specs Matrix */}
+            <div className="mt-8 sm:mt-10 md:mt-12 font-mono">
               <Fade>
-                <h4 className="text-lg md:text-xl font-bold text-text-primary mb-8 border-b border-text-secondary/20 pb-4 border-l-4 border-l-text-primary pl-4">Personal Details</h4>
+                <div className="flex items-center justify-between border-b border-[#00f0ff]/20 pb-2.5 sm:pb-3 mb-4 sm:mb-6">
+                  <span className="text-xs font-bold text-[#00f0ff] tracking-widest uppercase">
+                    // SYSTEM_METRICS & TELEMETRY
+                  </span>
+                  <span className="text-[10px] text-[#7f99b8]">DATABASE: LOCAL_INDEX</span>
+                </div>
               </Fade>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <FadeLeft delay={0.1}>
-                  <div className="flex flex-col p-2 -m-2 rounded-xl transition-colors duration-300 hover:bg-thirdary/40">
-                    <span className="text-xs uppercase tracking-widest font-bold text-text-secondary mb-1">Name</span>
-                    <span className="text-base font-semibold text-text-primary">Ahmad Rizki Hartawan</span>
+                  <div className="p-3 sm:p-3.5 rounded-lg bg-[#090e1c]/90 border border-[#00f0ff]/20 flex flex-col hover:border-[#00f0ff] transition-colors">
+                    <span className="text-[10px] uppercase tracking-widest text-[#7f99b8] mb-1">OPERATOR_NAME</span>
+                    <span className="text-xs sm:text-sm font-bold text-white">Khonif Zakaria</span>
                   </div>
                 </FadeLeft>
 
                 <FadeLeft delay={0.2}>
-                  <div className="flex flex-col p-2 -m-2 rounded-xl transition-colors duration-300 hover:bg-thirdary/40">
-                    <span className="text-xs uppercase tracking-widest font-bold text-text-secondary mb-1">Place of Birth</span>
-                    <span className="text-base font-semibold text-text-primary">Palembang, Indonesia</span>
+                  <div className="p-3 sm:p-3.5 rounded-lg bg-[#090e1c]/90 border border-[#00f0ff]/20 flex flex-col hover:border-[#00f0ff] transition-colors">
+                    <span className="text-[10px] uppercase tracking-widest text-[#7f99b8] mb-1">BASE_SECTOR</span>
+                    <span className="text-xs sm:text-sm font-bold text-white">Banyumas, Central Java, ID</span>
                   </div>
                 </FadeLeft>
 
                 <FadeLeft delay={0.3}>
-                  <div className="flex flex-col p-2 -m-2 rounded-xl transition-colors duration-300 hover:bg-thirdary/40">
-                    <span className="text-xs uppercase tracking-widest font-bold text-text-secondary mb-1">Phone</span>
-                    <span className="text-base font-semibold text-text-primary">+62 895-0818-8642</span>
+                  <div className="p-3 sm:p-3.5 rounded-lg bg-[#090e1c]/90 border border-[#00f0ff]/20 flex flex-col hover:border-[#00f0ff] transition-colors">
+                    <span className="text-[10px] uppercase tracking-widest text-[#7f99b8] mb-1">COMMS_LINK</span>
+                    <span className="text-xs sm:text-sm font-bold text-white">+62 815 8522 1246</span>
                   </div>
                 </FadeLeft>
 
                 <FadeLeft delay={0.4}>
-                  <div className="flex flex-col p-2 -m-2 rounded-xl transition-colors duration-300 hover:bg-thirdary/40">
-                    <span className="text-xs uppercase tracking-widest font-bold text-text-secondary mb-1">GPA</span>
-                    <span className="text-base font-semibold text-text-primary">3.67</span>
+                  <div className="p-3 sm:p-3.5 rounded-lg bg-[#090e1c]/90 border border-[#00f0ff]/20 flex flex-col hover:border-[#00f0ff] transition-colors">
+                    <span className="text-[10px] uppercase tracking-widest text-[#7f99b8] mb-1">ACADEMIC_RATING</span>
+                    <span className="text-xs sm:text-sm font-bold text-[#00ff66]">3.78 / 4.00 (Cumlaude)</span>
                   </div>
                 </FadeLeft>
 
                 <FadeLeft delay={0.5}>
-                  <div className="flex flex-col p-2 -m-2 rounded-xl transition-colors duration-300 hover:bg-thirdary/40">
-                    <span className="text-xs uppercase tracking-widest font-bold text-text-secondary mb-1">Email</span>
-                    <a href="mailto:a.rizkihartawan04@gmail.com" className="text-base font-semibold text-text-primary hover:text-text-secondary transition-colors underline decoration-text-secondary/30 underline-offset-4">
-                      a.rizkihartawan04@gmail.com
+                  <div className="sm:col-span-2 p-3 sm:p-3.5 rounded-lg bg-[#090e1c]/90 border border-[#00f0ff]/20 flex flex-col hover:border-[#00f0ff] transition-colors">
+                    <span className="text-[10px] uppercase tracking-widest text-[#7f99b8] mb-1">PRIMARY_ELECTRONIC_MAIL</span>
+                    <a href="mailto:oniefzk11@gmail.com" className="text-xs sm:text-sm font-bold text-[#00f0ff] hover:underline break-all">
+                      oniefzk11@gmail.com
                     </a>
-                  </div>
-                </FadeLeft>
-
-                <FadeLeft delay={0.6}>
-                  <div className="flex flex-col p-2 -m-2 rounded-xl transition-colors duration-300 hover:bg-thirdary/40">
-                    <span className="text-xs uppercase tracking-widest font-bold text-text-secondary mb-1">Education</span>
-                    <span className="text-base font-semibold text-text-primary">Universitas Multi Data Palembang</span>
                   </div>
                 </FadeLeft>
               </div>
             </div>
-          </div>
-        </div>
 
-        <Fade>
-          <div className="mt-24 md:mt-32 pb-6 border-text-secondary/10">
-            <ScrollVelocity texts={["Hello I'm RyHar", "Fullstack Web Developer"]} velocity={velocity} className="font-black tracking-tighter text-thirdary dark:text-button-hover opacity-50" />
           </div>
-        </Fade>
+
+        </div>
       </section>
     </>
   )
