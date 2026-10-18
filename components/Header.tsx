@@ -56,7 +56,7 @@ export default function Header() {
             className="font-display text-[17px] font-bold tracking-tight text-ink cursor-pointer"
             aria-label="Kembali ke atas"
           >
-            khonif<span className="text-accent">.dev</span>
+            niv<span className="text-accent">.dev</span>
           </button>
 
           {/* Desktop links */}

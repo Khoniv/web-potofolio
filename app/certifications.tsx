@@ -10,7 +10,7 @@ export default function Certifications() {
           index="03"
           subtitle="Certifications"
           title="Credentials"
-          description="Verified certificates — click any card to open the original document."
+          description="Click a card to open the original certificate."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
@@ -54,13 +54,13 @@ export default function Certifications() {
 
 const certifications = [
   {
-    title: "CAIA — Certified Artificial Intelligence Associate",
+    title: "CAIA: Certified Artificial Intelligence Associate",
     issuer: "Logical Operations",
     description: "Industry-recognized certification covering AI fundamentals and applied artificial intelligence.",
     url: "https://drive.google.com/file/d/1rN6Jc-6NU8kNa2ZmF-vyT-_c5AN-Kynp/view?usp=sharing",
   },
   {
-    title: "DOT — Desktop Office Training",
+    title: "DOT: Desktop Office Training",
     issuer: "Applied Microsoft Office program",
     description: "Certification for applied Microsoft Office skills for professional office work.",
     url: "https://drive.google.com/file/d/12JRHjgc0JcsuvxqkRZLbFlA9aBycF-Ff/view?usp=sharing",

@@ -25,13 +25,13 @@ export default function Experience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
-                className="relative pl-9 sm:pl-12"
+                className="group relative pl-9 sm:pl-12"
               >
                 <span
-                  className="absolute left-0 sm:left-[3px] top-6 h-[15px] w-[15px] rounded-full border-[3px] border-accent bg-paper"
+                  className="absolute left-0 sm:left-[3px] top-6 h-[15px] w-[15px] rounded-full border-[3px] border-accent bg-paper group-hover:scale-125 transition-transform"
                   aria-hidden="true"
                 />
-                <article className="rounded-2xl bg-surface border border-border p-5 sm:p-7 hover:border-ink/25 hover:shadow-[0_12px_40px_rgba(22,22,26,0.07)] transition-all duration-300">
+                <article className="rounded-2xl bg-surface border border-border p-5 sm:p-7 hover:border-accent/40 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(22,22,26,0.10)] transition-all duration-300">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-3">
                     <div>
                       <h3 className="font-display text-lg sm:text-xl font-bold text-ink tracking-tight">
@@ -59,7 +59,7 @@ export default function Experience() {
                     {exp.skills.map((skill, j) => (
                       <span
                         key={j}
-                        className="text-[11px] font-medium bg-paper border border-border text-muted rounded-lg px-2.5 py-1"
+                        className="text-[11px] font-medium bg-paper border border-border text-muted rounded-lg px-2.5 py-1 hover:border-accent/50 hover:text-accent transition-colors cursor-default"
                       >
                         {skill}
                       </span>
@@ -91,20 +91,20 @@ const experiences = [
     id: 1,
     company: "Universitas Amikom Purwokerto",
     role: "Bachelor of Informatics (S1)",
-    date: "2022 — 2026",
+    date: "2022-2026",
     status: "Graduated",
     description:
-      "Completed the Bachelor of Informatics degree program (S.Kom.), specializing in Software Engineering & Game Development — cumlaude, GPA 3.78/4.00. Thesis: implementation of the Game Development Life Cycle (GDLC) methodology in a computer hardware educational game built with Unity.",
+      "Informatics degree (S.Kom.), focused on Software Engineering and Game Development. Graduated cumlaude with a 3.78 GPA. Thesis: applying the Game Development Life Cycle (GDLC) to a computer hardware educational game built with Unity.",
     skills: ["Unity Engine", "C#", "GDLC", "Software Engineering", "AI & NLP"],
   },
   {
     id: 2,
-    company: "UKM Inmed — Information Technology Research and Multimedia",
+    company: "UKM Inmed, Information Technology Research and Multimedia",
     role: "Programming Division",
-    date: "2023 — 2024",
+    date: "2023-2024",
     status: "Completed",
     description:
-      "Sharpened engineering skills building web, desktop, and mobile systems. Collaborated on architecture design, code reviews, integration testing, and team technical sessions.",
+      "Built web, desktop, and mobile systems with a student IT community. Joined architecture discussions, code reviews, and integration testing.",
     skills: ["Web Development", "Desktop Systems", "Mobile Apps", "Agile Collaboration"],
     certLink: "#certifications",
   },
@@ -115,7 +115,7 @@ const experiences = [
     date: "2025",
     status: "Certified",
     description:
-      "Earned industry-recognized credentials: Certified Artificial Intelligence Associate (CAIA) from Logical Operations, Desktop Office Training (DOT) for applied Microsoft Office, and the official English Certification Program from Universitas Amikom Purwokerto.",
+      "Earned three credentials: Certified Artificial Intelligence Associate (CAIA) from Logical Operations, Desktop Office Training (DOT), and the English Certification Program from Universitas Amikom Purwokerto.",
     skills: ["Artificial Intelligence (CAIA)", "Applied Office Systems (DOT)", "English Certification"],
     certLink: "#certifications",
   },
@@ -123,10 +123,10 @@ const experiences = [
     id: 4,
     company: "SMK Ma'arif NU 1 Paguyangan",
     role: "Computer & Network Engineering (TKJ)",
-    date: "2019 — 2022",
+    date: "2019-2022",
     status: "Graduated",
     description:
-      "Built strong IT foundations: enterprise computer networking, hardware assembly & troubleshooting, Linux operating systems, structured cabling, and routing protocols.",
+      "Learned the IT basics: computer networking, hardware assembly and troubleshooting, Linux, structured cabling, and routing.",
     skills: ["Computer Networking", "Hardware Assembly", "Troubleshooting", "Linux"],
   },
 ]

@@ -16,7 +16,7 @@ export default function SectionHeader({
     <FadeDown>
       <div className="mb-10 sm:mb-14">
         <p className="font-mono text-xs text-accent font-medium tracking-[0.2em] uppercase mb-3">
-          {index} · {subtitle}
+          <span className="text-faint">~/</span>{index} / {subtitle}
         </p>
         <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-ink text-balance">
           {title}

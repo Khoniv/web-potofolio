@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Script from "next/script"
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google"
 import "../styles/globals.css"
 import PageLoader from "@/components/PageLoader"
@@ -24,7 +25,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://khonifzakaria.dev"),
   title: {
-    default: "Khonif Zakaria, S.Kom. — Software Engineer",
+    default: "Khonif Zakaria, S.Kom., Software Engineer",
     template: "%s | Khonif Zakaria",
   },
   description: "Personal portfolio of Khonif Zakaria. Informatics graduate (S.Kom.) specializing in Next.js, React, Laravel, Flutter, C#, and Unity Engine.",
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "id_ID",
     url: "/",
-    title: "Khonif Zakaria, S.Kom. — Software Engineer",
+    title: "Khonif Zakaria, S.Kom., Software Engineer",
     description: "Personal portfolio of Khonif Zakaria. Informatics graduate, Software, Web, Mobile, and Game Developer.",
     siteName: "Khonif Zakaria Portfolio",
     images: [
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Khonif Zakaria, S.Kom. — Software Engineer",
+    title: "Khonif Zakaria, S.Kom., Software Engineer",
     description: "Personal portfolio of Khonif Zakaria. Informatics graduate, Software, Web, Mobile, and Game Developer.",
     images: ["/images/og-cover.jpg"],
     creator: "@khonifzakaria",
@@ -71,13 +72,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" suppressHydrationWarning>
-      {/* Set tema sebelum paint untuk menghindari kedip (baca localStorage / preferensi OS) */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `(function(){try{var t=localStorage.getItem('khonif-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`,
-        }}
-      />
       <body className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+        {/* Set tema sebelum hydration untuk menghindari kedip (baca localStorage / preferensi OS) */}
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('khonif-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

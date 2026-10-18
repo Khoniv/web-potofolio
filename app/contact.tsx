@@ -24,7 +24,7 @@ export default function Contact() {
                 <p className="font-mono text-[10px] text-faint mt-0.5">-7.5303° S, 109.2941° E</p>
               </div>
               <iframe
-                title="Peta lokasi Khonif Zakaria — Banyumas, Jawa Tengah"
+                title="Peta lokasi Khonif Zakaria, Banyumas, Jawa Tengah"
                 src="https://maps.google.com/maps?q=Banyumas,Central+Java,Indonesia&t=&z=12&ie=UTF8&iwloc=&output=embed"
                 className="w-full h-full border-0 grayscale-[35%] contrast-[1.05] dark:grayscale-0 dark:invert-[0.92] dark:hue-rotate-180 dark:contrast-[0.9]"
                 allowFullScreen
@@ -42,7 +42,7 @@ export default function Contact() {
                   href={channel.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`${channel.label} — ${channel.detail}`}
+                  aria-label={`${channel.label}: ${channel.detail}`}
                   className="group flex items-center justify-between gap-3 rounded-2xl bg-surface border border-border p-4 sm:p-5 hover:border-ink/30 hover:shadow-[0_12px_32px_rgba(22,22,26,0.08)] hover:-translate-y-0.5 transition-all duration-300"
                 >
                   <span className="flex items-center gap-4 min-w-0">

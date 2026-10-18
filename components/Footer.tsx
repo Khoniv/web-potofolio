@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-12 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-center md:text-left">
           <p className="font-display font-bold tracking-tight text-lg">
-            khonif<span className="text-accent">.dev</span>
+            niv<span className="text-accent">.dev</span>
           </p>
           <p className="text-[13px] text-white/50 mt-1">
             &copy; {currentYear} Khonif Zakaria, S.Kom. All rights reserved.

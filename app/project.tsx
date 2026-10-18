@@ -39,7 +39,7 @@ export default function Project() {
           index="05"
           subtitle="Projects"
           title="Selected work"
-          description="Real projects — web apps, games, mobile, desktop, and 3D animation. Click a card for details."
+          description="Real projects: web apps, games, mobile, desktop, and 3D animation. Click a card for details."
         />
 
         {/* Filter pills */}
@@ -156,7 +156,7 @@ export default function Project() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="absolute inset-0 bg-ink/45 backdrop-blur-sm"
+                className="absolute inset-0 bg-ink/60 backdrop-blur-md"
                 onClick={() => setIsOpen(null)}
               />
               <motion.div
@@ -164,39 +164,37 @@ export default function Project() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.96, y: 16 }}
                 transition={{ type: "spring", damping: 28, stiffness: 300 }}
-                className="relative bg-surface rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col shadow-[0_24px_80px_rgba(22,22,26,0.20)]"
+                className="relative bg-surface border border-border rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col shadow-[0_32px_100px_rgba(0,0,0,0.35)]"
               >
-                <div className="flex justify-between items-center px-5 sm:px-6 py-4 border-b border-border">
-                  <div className="min-w-0 pr-3">
-                    <h3 className="font-display text-lg sm:text-xl font-bold text-ink tracking-tight truncate">
-                      {activeProject.title}
-                    </h3>
-                    <p className="font-mono text-[11px] uppercase tracking-widest text-accent mt-0.5">
-                      {activeProject.category}
-                    </p>
-                  </div>
+                <div className="relative aspect-[16/8] w-full overflow-hidden flex-shrink-0">
+                  <Image
+                    src={activeProject.imagePath}
+                    alt={activeProject.title}
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 95vw, 640px"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
                   <button
                     onClick={() => setIsOpen(null)}
-                    className="p-2 rounded-lg text-muted hover:text-ink hover:bg-ink/[0.06] transition-colors flex-shrink-0 cursor-pointer"
+                    className="absolute top-4 right-4 p-2 rounded-xl bg-black/40 backdrop-blur text-white hover:bg-black/60 hover:rotate-90 transition-all duration-300 cursor-pointer"
                     aria-label="Tutup detail proyek"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </button>
+                  <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6">
+                    <p className="font-mono text-[11px] uppercase tracking-widest text-white/70">
+                      {activeProject.category}
+                    </p>
+                    <h3 className="font-display text-xl sm:text-2xl font-bold text-white tracking-tight mt-1">
+                      {activeProject.title}
+                    </h3>
+                  </div>
                 </div>
 
                 <div className="p-5 sm:p-6 overflow-y-auto flex-grow">
-                  <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden border border-border mb-6 bg-paper">
-                    <Image
-                      src={activeProject.imagePath}
-                      alt={activeProject.title}
-                      fill
-                      className="object-cover object-center"
-                      sizes="(max-width: 768px) 95vw, 640px"
-                    />
-                  </div>
-
                   <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint mb-2">Overview</p>
                   <p className="text-sm text-ink leading-relaxed mb-6">{activeProject.fullDescription}</p>
 
@@ -282,18 +280,18 @@ const projectList = [
   {
     index: 0,
     imagePath: "/images/techdrop-merakit.png",
-    title: "TechDrop 2.0 — PC Hardware Educational Game",
-    category: "Game Development · Unity & C#",
+    title: "TechDrop 2.0: PC Hardware Educational Game",
+    category: "Game Development, Unity & C#",
     categoryType: "GAMES_MOBILE",
-    shortDescription: "Interactive 2D/3D PC hardware assembly simulation game built with Unity and C# using the Game Development Life Cycle (GDLC). Drag-and-drop hardware installation, level challenges, and diagnostic quizzes.",
-    fullDescription: "TechDrop 2.0 is an educational desktop game that teaches computer hardware architecture through hands-on interaction. Built with Unity Engine 2021 LTS and C# under the structured Game Development Life Cycle (GDLC) methodology, players assemble simulated computers (CPU, RAM, GPU, PSU, drives), learn hardware specs, and test knowledge through diagnostic mini-games. Validated with an 85% expert rating and 90.6% user acceptance score.",
+    shortDescription: "Educational PC assembly game built with Unity and C#. Drag-and-drop hardware installation, level challenges, and quizzes.",
+    fullDescription: "TechDrop 2.0 is a desktop game that teaches computer hardware by letting players assemble a virtual PC: CPU, RAM, GPU, PSU, and drives. Built with Unity 2021 LTS and C# following the Game Development Life Cycle (GDLC). Tested with an 85% expert rating and 90.6% user acceptance. A playable Windows build is on itch.io.",
     createdAt: "2026",
     features: [
-      "Full GDLC process: concept, pre-production, production, testing, beta release",
-      "Interactive drag-and-drop motherboard & chassis assembly simulation",
-      "Hardware knowledge base with diagnostic quizzes",
-      "Validated: 85% expert acceptance & 90.6% usability rating",
-      "Playable Windows build released on itch.io",
+      "Full GDLC process, from concept to beta release",
+      "Drag-and-drop motherboard and chassis assembly",
+      "Hardware knowledge base with quizzes",
+      "85% expert rating and 90.6% user acceptance",
+      "Windows build released on itch.io",
     ],
     tech: ["Unity Engine", "C#", "GDLC", "2D/3D Physics", "UI/UX"],
     githubUrl: "https://github.com/Khoniv/techdrop-nivdev",
@@ -303,18 +301,18 @@ const projectList = [
   {
     index: 1,
     imagePath: "/images/capitstore-showcase.svg",
-    title: "Capit Store — Footwear E-Commerce",
-    category: "Fullstack Web · Next.js",
+    title: "Capit Store: Footwear E-Commerce",
+    category: "Fullstack Web, Next.js",
     categoryType: "WEB",
-    shortDescription: "Modern footwear e-commerce app built with Next.js 15, React 19, Clerk authentication, and Inngest background queues for an Indonesian casual sandal brand.",
-    fullDescription: "Capit Store is a full-featured e-commerce platform for casual footwear by Indonesian creators. Built on the Next.js 15 App Router with Clerk for secure multi-role authentication (customers & sellers), a JSON-based product catalog, Inngest for async background jobs, and real-time cart, order tracking, and backoffice inventory management.",
+    shortDescription: "Online store for a casual sandal brand. Next.js 15, React 19, Clerk auth, and background job queues.",
+    fullDescription: "Capit Store is an e-commerce site for an Indonesian casual sandal brand. Built with the Next.js 15 App Router and Clerk for customer and seller logins. It has a product catalog, cart, order tracking, and a backoffice for managing stock.",
     createdAt: "2025",
     features: [
-      "Clerk authentication with customer & seller roles",
-      "Product filtering, category browsing & instant cart",
-      "Order tracking and multi-address delivery",
-      "Background job sync via Inngest queues",
-      "Admin backoffice for stock & catalog management",
+      "Customer and seller roles with Clerk",
+      "Product catalog, categories, and cart",
+      "Order tracking and delivery addresses",
+      "Background jobs with Inngest",
+      "Backoffice for stock management",
     ],
     tech: ["Next.js 15", "React 19", "Clerk Auth", "Tailwind CSS", "Inngest"],
     githubUrl: "https://github.com/Khoniv/capit-store",
@@ -324,18 +322,18 @@ const projectList = [
   {
     index: 2,
     imagePath: "/images/news5-showcase.svg",
-    title: "News-5 — Digital News Portal & CMS",
-    category: "Web Portal · Laravel 11",
+    title: "News-5: Digital News Portal & CMS",
+    category: "Web Portal, Laravel 11",
     categoryType: "WEB",
-    shortDescription: "Editorial news publishing portal built with Laravel 11 and Livewire 3 — real-time reader discussions, trending analytics, and a role-based CMS backoffice.",
-    fullDescription: "News-5 is a digital journalism portal and content management system for high-throughput editorial publishing. Powered by Laravel 11 and Livewire 3, it offers a magazine-style reading experience with trending stories ranked by view analytics, automated slugs, and real-time comment threads without page reloads. Admins and journalists can draft, review, categorize, and schedule articles.",
+    shortDescription: "News portal and CMS built with Laravel 11 and Livewire 3. Real-time comments and trending stories.",
+    fullDescription: "News-5 is a news publishing site with a content management backend. Laravel 11 and Livewire 3 power real-time comment threads, trending stories ranked by views, and automated slugs. Journalists can draft, review, and schedule articles.",
     createdAt: "2025",
     features: [
-      "Role-based access: super admin vs. editorial staff",
-      "Real-time comments & replies via Livewire 3",
-      "Trending algorithm based on article view counts",
-      "Rich-text article editor with media uploads",
-      "SEO-friendly automated slugs & meta tags",
+      "Super admin and editorial staff roles",
+      "Real-time comments with Livewire 3",
+      "Trending stories from view counts",
+      "Rich-text editor with media uploads",
+      "Automatic SEO slugs",
     ],
     tech: ["Laravel 11", "PHP 8.3", "Livewire 3", "MySQL", "Tailwind CSS"],
     githubUrl: "https://github.com/Khoniv/news-5",
@@ -345,18 +343,18 @@ const projectList = [
   {
     index: 3,
     imagePath: "/images/parkeazy-showcase.svg",
-    title: "ParkEazy — Parking Management System",
-    category: "Desktop · C# .NET",
+    title: "ParkEazy: Parking Management System",
+    category: "Desktop, C# .NET",
     categoryType: "DESKTOP_3D",
-    shortDescription: "Windows desktop parking operations software built with C# and .NET Framework — visual bay allocation (P1–P12), automated check-in/out, SQL Server persistence.",
-    fullDescription: "ParkEazy modernizes commercial parking operations as a reliable desktop suite. Built with C# and .NET Framework 4.7.2 using Guna.UI2 components, it gives attendants an interactive visual grid of 12 real-time parking bays — registering license plates, classifying cars vs. motorcycles, computing hourly rates, and storing transactions in Microsoft SQL Server.",
+    shortDescription: "Windows desktop app for parking operations. C# and .NET Framework with SQL Server.",
+    fullDescription: "ParkEazy is a desktop app for running commercial parking lots. Built with C# and .NET Framework 4.7.2, it shows 12 parking bays on a live visual grid, registers license plates, computes hourly rates, and stores transactions in SQL Server.",
     createdAt: "2024",
     features: [
-      "Real-time visual bay grid (slots P1–P12)",
-      "Vehicle classification with dynamic rate logic",
-      "Instant check-in, bay reservation & ticket timestamps",
-      "Relational database on Microsoft SQL Server",
-      "ClickOnce deployment packaging",
+      "Live visual grid of 12 parking bays",
+      "Car and motorcycle rate logic",
+      "Check-in, reservation, and ticket timestamps",
+      "Transaction storage in SQL Server",
+      "ClickOnce installer packaging",
     ],
     tech: ["C#", ".NET Framework", "Guna.UI2", "SQL Server", "Windows Forms"],
     githubUrl: "https://github.com/Khoniv/park-eazy",
@@ -366,17 +364,17 @@ const projectList = [
   {
     index: 4,
     imagePath: "/images/jbag-showcase.svg",
-    title: "JBAG — Game Account Marketplace",
-    category: "Mobile App · Flutter",
+    title: "JBAG: Game Account Marketplace",
+    category: "Mobile App, Flutter",
     categoryType: "GAMES_MOBILE",
-    shortDescription: "Cross-platform mobile marketplace built with Flutter & Dart for secure game account trading — multi-game catalog with Indonesian e-wallet payments (DANA, GoPay, OVO).",
-    fullDescription: "JBAG (Jual Beli Akun Game) is a mobile marketplace giving gamers a safe environment for trading verified game accounts (Mobile Legends, Genshin Impact, Free Fire, Valorant, PUBG Mobile). Built with Flutter following Clean Architecture: fast catalog search, seller verification, multi-step checkout, and settlement via GoPay, DANA, OVO, and bank virtual accounts.",
+    shortDescription: "Mobile marketplace for trading game accounts. Flutter and Dart, with Indonesian e-wallet payments.",
+    fullDescription: "JBAG (Jual Beli Akun Game) is a mobile marketplace for trading verified game accounts safely. Built with Flutter using Clean Architecture: catalog search, seller verification, checkout flow, and payments via GoPay, DANA, OVO, and bank virtual accounts.",
     createdAt: "2024",
     features: [
-      "Cross-platform UI with Flutter & Dart",
-      "Verified account catalog with rarity/rank filters",
-      "Indonesian payment integration (GoPay, DANA, OVO, bank VA)",
-      "Cart state & secure checkout flow",
+      "Flutter and Dart cross-platform UI",
+      "Verified catalog with rank filters",
+      "GoPay, DANA, OVO, and bank VA payments",
+      "Cart and secure checkout flow",
       "Clean Architecture with unit tests",
     ],
     tech: ["Flutter", "Dart", "Clean Architecture", "REST API", "Mobile UX"],
@@ -387,18 +385,18 @@ const projectList = [
   {
     index: 5,
     imagePath: "/images/tupat-real.jpg",
-    title: "Petualangan Si Tupat — 3D Animated Short",
-    category: "3D Animation · Studio Production",
+    title: "Petualangan Si Tupat: 3D Animated Short",
+    category: "3D Animation, Studio Production",
     categoryType: "DESKTOP_3D",
-    shortDescription: "3D animated short film production — Khonif served as producer, rigging artist, and lighting/rendering artist using 3ds Max, Mixamo, and After Effects.",
-    fullDescription: "Petualangan Si Tupat is a 3D animated short film celebrating cultural storytelling. Khonif took key creative and technical roles as producer, rigging artist, and lighting/rendering artist: character rigging and skinning in Autodesk 3ds Max, motion integration with Mixamo, lighting setups, multi-pass rendering, and post-production compositing in After Effects and Premiere Pro. Publicly streaming on YouTube.",
+    shortDescription: "3D animated short film. I worked as producer, rigging artist, and lighting/rendering artist.",
+    fullDescription: "Petualangan Si Tupat is a 3D animated short film. I was the producer, rigging artist, and lighting/rendering artist: character rigging in 3ds Max, motion from Mixamo, lighting and rendering, then compositing in After Effects and Premiere Pro. Streaming on YouTube.",
     createdAt: "2025",
     features: [
-      "Producer, rigging artist & rendering lead",
-      "Character rigging & weight painting in 3ds Max",
-      "Lighting, atmosphere & high-fidelity rendering",
-      "Compositing & color grading in After Effects",
-      "Streaming publicly on YouTube",
+      "Producer, rigging, and rendering lead",
+      "Character rigging and weight painting in 3ds Max",
+      "Lighting and high-quality rendering",
+      "Compositing and color grading in After Effects",
+      "Streaming on YouTube",
     ],
     tech: ["Autodesk 3ds Max", "Mixamo", "After Effects", "Premiere Pro", "3D Animation"],
     githubUrl: null,

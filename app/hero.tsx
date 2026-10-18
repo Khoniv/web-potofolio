@@ -1,8 +1,8 @@
 "use client"
-import Image from "next/image"
 import { useEffect, useState, useMemo } from "react"
 import FadeRight from "@/components/animations/FadeRight"
 import FadeLeft from "@/components/animations/FadeLeft"
+import PhotoCard from "@/components/PhotoCard"
 
 export default function Hero() {
   const [index, setIndex] = useState(0)
@@ -80,9 +80,9 @@ export default function Hero() {
             </div>
 
             <p className="mt-5 max-w-xl text-muted text-[15px] sm:text-base leading-relaxed">
-              Informatics graduate (cumlaude, GPA 3.78) from Universitas Amikom Purwokerto.
-              I build fullstack web apps, mobile apps, desktop systems, and interactive
-              3D games with Unity — clean code, shipped on time.
+              Fresh informatics graduate from Universitas Amikom Purwokerto, GPA 3.78.
+              I build web apps, mobile apps, desktop systems, and 3D games with Unity.
+              Clean code, delivered on time.
             </p>
 
             <div className="mt-7 flex flex-col sm:flex-row flex-wrap gap-3">
@@ -131,38 +131,8 @@ export default function Hero() {
         {/* Right: photo */}
         <div className="lg:col-span-5">
           <FadeRight>
-            <div className="relative max-w-[320px] sm:max-w-[360px] mx-auto">
-              <div className="rounded-3xl overflow-hidden border border-border bg-surface shadow-[0_20px_60px_rgba(22,22,26,0.10)]">
-                <Image
-                  src="/images/khonif-informal.png"
-                  alt="Foto Khonif Zakaria"
-                  width={560}
-                  height={700}
-                  priority
-                  className="object-cover object-top aspect-[4/5] w-full h-auto"
-                />
-                <div className="px-5 py-4 border-t border-border flex items-center justify-between">
-                  <div>
-                    <p className="text-sm font-semibold text-ink">Khonif Zakaria</p>
-                    <p className="text-xs text-muted">Banyumas, Central Java</p>
-                  </div>
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-faint">S.Kom</span>
-                </div>
-              </div>
-
-              {/* Floating cards */}
-              <div className="absolute -left-2 sm:-left-8 top-8 animate-float-soft">
-                <div className="bg-surface border border-border rounded-xl px-3.5 py-2.5 shadow-[0_10px_30px_rgba(22,22,26,0.10)]">
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-faint">GPA</p>
-                  <p className="text-sm font-bold text-ink">3.78 <span className="font-medium text-muted">/ 4.00</span></p>
-                </div>
-              </div>
-              <div className="absolute -right-3 sm:-right-6 bottom-24 animate-float-soft" style={{ animationDelay: "2.5s" }}>
-                <div className="bg-ink text-paper rounded-xl px-3.5 py-2.5 shadow-[0_10px_30px_rgba(22,22,26,0.25)]">
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-paper/60">Degree</p>
-                  <p className="text-sm font-bold">S.Kom. · Informatics</p>
-                </div>
-              </div>
+            <div className="max-w-[320px] sm:max-w-[360px] mx-auto pb-6">
+              <PhotoCard priority />
             </div>
           </FadeRight>
         </div>

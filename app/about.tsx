@@ -2,7 +2,7 @@
 import Fade from "@/components/animations/Fade"
 import FadeLeft from "@/components/animations/FadeLeft"
 import SectionHeader from "@/components/SectionHeader"
-import Image from "next/image"
+import PhotoCard from "@/components/PhotoCard"
 
 export default function About() {
   return (
@@ -14,15 +14,8 @@ export default function About() {
           {/* Photo */}
           <div className="lg:col-span-5">
             <Fade>
-              <div className="rounded-3xl overflow-hidden border border-border bg-surface shadow-[0_20px_60px_rgba(22,22,26,0.08)] max-w-[380px] mx-auto lg:mx-0">
-                <Image
-                  src="/images/hero.jpg"
-                  alt="Khonif Zakaria"
-                  width={828}
-                  height={1024}
-                  className="object-cover object-top aspect-[4/5] w-full h-auto"
-                  sizes="(max-width: 1024px) 90vw, 380px"
-                />
+              <div className="max-w-[360px] mx-auto lg:mx-0 pb-6">
+                <PhotoCard />
               </div>
             </Fade>
           </div>
@@ -31,24 +24,23 @@ export default function About() {
           <div className="lg:col-span-7">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
               <Fade>
-                <div className="p-5 sm:p-6 rounded-2xl bg-surface border border-border hover:border-ink/30 transition-colors">
+                <div className="p-5 sm:p-6 rounded-2xl bg-surface border border-border hover:border-accent/40 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(22,22,26,0.10)] transition-all duration-300">
                   <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint mb-2">Profile</p>
                   <h3 className="font-display text-lg font-bold text-ink mb-2">Khonif Zakaria, S.Kom.</h3>
                   <p className="text-sm text-muted leading-relaxed">
-                    Informatics graduate (S1) from Universitas Amikom Purwokerto, cumlaude with
-                    GPA 3.78/4.00. I build modern web apps, backend services, mobile apps,
-                    desktop systems, and interactive 3D games with Unity.
+                    I graduated in Informatics (S1) from Universitas Amikom Purwokerto with a 3.78 GPA.
+                    I work on web apps, backend services, mobile apps, desktop systems,
+                    and 3D games built with Unity.
                   </p>
                 </div>
               </Fade>
               <Fade>
-                <div className="p-5 sm:p-6 rounded-2xl bg-surface border border-border hover:border-ink/30 transition-colors">
+                <div className="p-5 sm:p-6 rounded-2xl bg-surface border border-border hover:border-accent/40 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(22,22,26,0.10)] transition-all duration-300">
                   <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint mb-2">How I work</p>
                   <h3 className="font-display text-lg font-bold text-ink mb-2">Clean &amp; structured</h3>
                   <p className="text-sm text-muted leading-relaxed">
-                    Analytical problem solving, clean code architecture, and structured delivery —
-                    including the Game Development Life Cycle (GDLC). Fast learner, comfortable
-                    collaborating in agile teams.
+                    I like solving problems analytically and writing clean, well-structured code.
+                    Comfortable working in agile teams and picking up new tools fast.
                   </p>
                 </div>
               </Fade>
@@ -58,7 +50,7 @@ export default function About() {
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
               {infoItems.map((item, i) => (
                 <FadeLeft key={i} delay={i * 0.08}>
-                  <div className="p-4 rounded-xl bg-surface border border-border flex flex-col gap-1">
+                  <div className="p-4 rounded-xl bg-surface border border-border flex flex-col gap-1 hover:border-accent/40 hover:-translate-y-0.5 transition-all duration-300">
                     <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-faint">{item.label}</span>
                     {item.href ? (
                       <a href={item.href} className="text-sm font-semibold text-ink hover:text-accent transition-colors break-all">
@@ -82,7 +74,7 @@ const infoItems = [
   { label: "Name", value: "Khonif Zakaria, S.Kom." },
   { label: "Location", value: "Banyumas, Central Java, ID" },
   { label: "Phone / WhatsApp", value: "+62 815 8522 1246", href: "https://wa.me/6281585221246" },
-  { label: "Degree", value: "S.Kom. — Informatics (S1)" },
-  { label: "GPA", value: "3.78 / 4.00 — Cumlaude" },
+  { label: "Degree", value: "S.Kom., Informatics (S1)" },
+  { label: "GPA", value: "3.78 / 4.00, Cumlaude" },
   { label: "Email", value: "oniefzk11@gmail.com", href: "mailto:oniefzk11@gmail.com" },
 ]
