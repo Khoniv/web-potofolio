@@ -1,261 +1,122 @@
 @import "tailwindcss";
 
-/* 🛸 Programmer Cyberpunk Palette */
+/* Dark mode via class (Tailwind v4) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ——— Minimalist programmer theme: paper, ink, one accent ——— */
 :root {
-  --background: #050811;
-  --foreground: #090e1c;
-  --thirdary: #0e172a;
-  --text-primary: #e2f1ff;
-  --text-secondary: #7f99b8;
-  --button-hover: #12213d;
-  --neon-cyan: #00f0ff;
-  --neon-magenta: #ff007f;
-  --neon-green: #00ff66;
-  --neon-amber: #ffaa00;
-  --neon-color: #00f0ff;
-  --button-hero: #00f0ff;
-  --button-hero-hover: #38f4ff;
-  --quick-stats-bg: #090e1c;
-  --bg-project-card: #090e1c;
-  --text-project-card: #000000;
-  --cyber-border: rgba(0, 240, 255, 0.25);
-  --cyber-grid: rgba(0, 240, 255, 0.04);
+  --paper: #fafaf7;
+  --surface: #ffffff;
+  --ink: #16161a;
+  --muted: #5f5f6a;
+  --faint: #9a9aa3;
+  --border: #e7e7e0;
+  --accent: #2e4bff;
+  --accent-soft: rgba(46, 75, 255, 0.07);
+  --night: #141419;
+  --dot: rgba(22, 22, 26, 0.055);
+  color-scheme: light;
 }
 
+/* Dark theme: same system, inverted */
 .dark {
-  --background: #030509;
-  --foreground: #080c16;
-  --thirdary: #0c1424;
-  --text-primary: #e2f1ff;
-  --text-secondary: #7f99b8;
-  --button-hover: #101c33;
-  --neon-cyan: #00f0ff;
-  --neon-magenta: #ff007f;
-  --neon-green: #00ff66;
-  --neon-amber: #ffaa00;
-  --neon-color: #00f0ff;
-  --button-hero: #00f0ff;
-  --button-hero-hover: #38f4ff;
-  --quick-stats-bg: #080c16;
-  --bg-project-card: #080c16;
-  --text-project-card: #000000;
-  --cyber-border: rgba(0, 240, 255, 0.28);
-  --cyber-grid: rgba(0, 240, 255, 0.05);
+  --paper: #0e0e12;
+  --surface: #16161c;
+  --ink: #f4f4f2;
+  --muted: #a9a9b4;
+  --faint: #6f6f7a;
+  --border: #26262e;
+  --accent: #6b86ff;
+  --accent-soft: rgba(107, 134, 255, 0.12);
+  --night: #0a0a0d;
+  --dot: rgba(255, 255, 255, 0.05);
+  color-scheme: dark;
 }
 
 @theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-thirdary: var(--thirdary);
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-button-hover: var(--button-hover);
-  --color-neon: var(--neon-cyan);
-  --color-neon-cyan: #00f0ff;
-  --color-neon-magenta: #ff007f;
-  --color-neon-green: #00ff66;
-  --color-neon-amber: #ffaa00;
-  --color-button-hero: var(--button-hero);
-  --color-button-hero-hover: var(--button-hero-hover);
-  --color-quick-stats-bg: var(--quick-stats-bg);
-  --color-bg-project-card: var(--bg-project-card);
-  --color-text-project-card: var(--text-project-card);
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-night: var(--night);
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
-/* ⚡ Body & Cyberpunk Base */
-body {
-  background-color: var(--background);
-  color: var(--text-primary);
-  transition: background 0.3s ease, color 0.3s ease;
-  font-family: var(--font-poppins), sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-image: 
-    linear-gradient(to right, var(--cyber-grid) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--cyber-grid) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-position: center top;
-  position: relative;
-  overflow-x: hidden;
-}
-
-/* Cyber ambient scanlines */
-body::before {
-  content: " ";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.12),
-    rgba(0, 0, 0, 0.12) 1px,
-    transparent 1px,
-    transparent 2px
-  );
-  pointer-events: none;
-  z-index: 999;
-  opacity: 0.35;
-}
-
-/* Glowing Neon Elements */
-.glow-cyan {
-  text-shadow: 0 0 10px rgba(0, 240, 255, 0.7), 0 0 20px rgba(0, 240, 255, 0.4);
-}
-
-.glow-magenta {
-  text-shadow: 0 0 10px rgba(255, 0, 127, 0.7), 0 0 20px rgba(255, 0, 127, 0.4);
-}
-
-.glow-green {
-  text-shadow: 0 0 10px rgba(0, 255, 102, 0.7), 0 0 20px rgba(0, 255, 102, 0.4);
-}
-
-.box-glow-cyan {
-  box-shadow: 0 0 25px -5px rgba(0, 240, 255, 0.35), inset 0 0 15px -3px rgba(0, 240, 255, 0.15);
-}
-
-.box-glow-magenta {
-  box-shadow: 0 0 25px -5px rgba(255, 0, 127, 0.35), inset 0 0 15px -3px rgba(255, 0, 127, 0.15);
-}
-
-/* Cyberpunk Chamfered / Cut Corners */
-.cyber-corner {
-  clip-path: polygon(
-    0 0, 
-    calc(100% - 14px) 0, 
-    100% 14px, 
-    100% 100%, 
-    14px 100%, 
-    0 calc(100% - 14px)
-  );
-}
-
-.cyber-badge {
-  clip-path: polygon(
-    0 0, 
-    calc(100% - 8px) 0, 
-    100% 8px, 
-    100% 100%, 
-    8px 100%, 
-    0 calc(100% - 8px)
-  );
-}
-
-/* Terminal Cursor Blink */
-@keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
-}
-
-.animate-cursor {
-  animation: blink 1s infinite;
-}
-
-/* Floating animation */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-.floating {
-  animation: float 4s ease-in-out infinite;
-}
-
-/* Cyber Scan Bar */
-@keyframes cyber-scan {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(1000%); }
-}
-
-.animate-scan {
-  animation: cyber-scan 6s linear infinite;
-}
-
-/* Cyber Laser Scanline Sweep on Hover - Runs 1 time per hover */
-@keyframes cyber-laser {
-  0% { top: 0%; opacity: 0; }
-  15% { opacity: 1; }
-  85% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
-}
-
-.animate-cyber-laser {
-  animation: cyber-laser 0.85s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
-  box-shadow: 0 0 12px #00f0ff, 0 0 20px #00f0ff;
-}
-
-/* Smooth Scrolling */
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
   overflow-x: hidden;
   max-width: 100vw;
 }
 
-/* Cyber Scrollbar */
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* subtle dotted blueprint grid */
+  background-image: radial-gradient(var(--dot) 1px, transparent 1px);
+  background-size: 26px 26px;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Minimal scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 10px;
+  height: 10px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #050811;
+  background: transparent;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #00f0ff;
-  border-radius: 2px;
-  box-shadow: 0 0 10px #00f0ff;
+  background: #d6d6cd;
+  border-radius: 8px;
+  border: 2.5px solid var(--paper);
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #38f4ff;
+  background: #b9b9ae;
 }
 
-.custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+/* Terminal caret blink (used by hero typewriter) */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.animate-cursor {
+  animation: blink 1.05s step-end infinite;
 }
 
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(0, 240, 255, 0.05);
+/* Soft float for badges */
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+.animate-float-soft {
+  animation: float-soft 5s ease-in-out infinite;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(0, 240, 255, 0.4);
-  border-radius: 2px;
+.text-balance {
+  text-wrap: balance;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #00f0ff;
-}
-
-/* Tech icon styling */
-.tech-icon-img {
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.tech-icon-img:hover {
-  filter: drop-shadow(0 0 8px #00f0ff);
-}
-
-/* Infinite Scroll */
-@keyframes infinite-scroll {
-  from {
-    transform: translateX(0);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  to {
-    transform: translateX(-50%);
+  .animate-cursor,
+  .animate-float-soft {
+    animation: none;
   }
-}
-
-.animate-infinite-scroll {
-  animation: infinite-scroll 25s linear infinite;
-  width: max-content;
-}
-
-.animate-infinite-scroll:hover {
-  animation-play-state: paused;
 }
