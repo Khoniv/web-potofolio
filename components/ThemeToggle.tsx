@@ -24,8 +24,8 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggle}
-      aria-label={dark ? "Ganti ke tema terang" : "Ganti ke tema gelap"}
-      title={dark ? "Tema terang" : "Tema gelap"}
+      aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
+      title={dark ? "Light theme" : "Dark theme"}
       className="p-2 rounded-xl text-muted hover:text-ink hover:bg-ink/[0.06] transition-colors cursor-pointer"
     >
       {mounted && dark ? (

@@ -43,7 +43,7 @@ export default function Project() {
         />
 
         {/* Filter pills */}
-        <div className="flex flex-wrap gap-2 mb-8 sm:mb-10" role="group" aria-label="Filter proyek berdasarkan kategori">
+        <div className="flex flex-wrap gap-2 mb-8 sm:mb-10" role="group" aria-label="Filter projects by category">
           {filterTabs.map((tab) => {
             const isActive = activeFilter === tab.key
             return (
@@ -75,8 +75,8 @@ export default function Project() {
             >
               <button
                 onClick={() => setIsOpen(project.index)}
-                className="group w-full text-left cursor-pointer rounded-2xl bg-surface border border-border overflow-hidden hover:border-ink/25 hover:shadow-[0_16px_48px_rgba(22,22,26,0.10)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full"
-                aria-label={`Lihat detail proyek ${project.title}`}
+                className="group w-full text-left cursor-pointer rounded-2xl bg-surface/60 backdrop-blur-md border border-border overflow-hidden hover:border-ink/25 hover:shadow-[0_16px_48px_rgba(22,22,26,0.10)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full"
+                aria-label={`View details of ${project.title}`}
               >
                 <div className="relative aspect-[16/10] overflow-hidden bg-paper">
                   <Image
@@ -149,14 +149,14 @@ export default function Project() {
               className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6"
               role="dialog"
               aria-modal="true"
-              aria-label={`Detail proyek ${activeProject.title}`}
+              aria-label={`Project details: ${activeProject.title}`}
             >
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="absolute inset-0 bg-ink/60 backdrop-blur-md"
+                className="absolute inset-0 bg-black/60 backdrop-blur-md"
                 onClick={() => setIsOpen(null)}
               />
               <motion.div
@@ -164,7 +164,7 @@ export default function Project() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.96, y: 16 }}
                 transition={{ type: "spring", damping: 28, stiffness: 300 }}
-                className="relative bg-surface border border-border rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col shadow-[0_32px_100px_rgba(0,0,0,0.35)]"
+                className="relative bg-surface/90 backdrop-blur-2xl border border-border rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col shadow-[0_32px_100px_rgba(0,0,0,0.35)]"
               >
                 <div className="relative aspect-[16/8] w-full overflow-hidden flex-shrink-0">
                   <Image
@@ -178,7 +178,7 @@ export default function Project() {
                   <button
                     onClick={() => setIsOpen(null)}
                     className="absolute top-4 right-4 p-2 rounded-xl bg-black/40 backdrop-blur text-white hover:bg-black/60 hover:rotate-90 transition-all duration-300 cursor-pointer"
-                    aria-label="Tutup detail proyek"
+                    aria-label="Close project details"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />

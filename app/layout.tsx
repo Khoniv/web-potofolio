@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   creator: "Khonif Zakaria",
   openGraph: {
     type: "website",
-    locale: "id_ID",
+    locale: "en_US",
     url: "/",
     title: "Khonif Zakaria, S.Kom., Software Engineer",
     description: "Personal portfolio of Khonif Zakaria. Informatics graduate, Software, Web, Mobile, and Game Developer.",
@@ -71,7 +71,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="id" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         {/* Set tema sebelum hydration untuk menghindari kedip (baca localStorage / preferensi OS) */}
         <Script

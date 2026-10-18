@@ -42,12 +42,12 @@ export default function TechStack() {
                 <button
                   onClick={() => toggle(tech.name)}
                   aria-pressed={isFlipped}
-                  aria-label={`${tech.name}: klik untuk membalik kartu`}
+                  aria-label={`${tech.name}: click to flip the card`}
                   className="relative block w-full h-40 sm:h-44 cursor-pointer [transform-style:preserve-3d] transition-transform duration-500 ease-out motion-reduce:transition-none"
                   style={{ transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)" }}
                 >
                   {/* Depan */}
-                  <span className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-2xl bg-surface border border-border p-4 text-center [backface-visibility:hidden] hover:border-accent/50 hover:shadow-[0_12px_32px_rgba(46,75,255,0.10)] transition-colors duration-300">
+                  <span className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-2xl bg-surface/60 backdrop-blur-md border border-border p-4 text-center [backface-visibility:hidden] hover:border-accent/50 hover:shadow-[0_12px_32px_rgba(46,75,255,0.10)] transition-colors duration-300">
                     <span className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
                       {tech.icon ? (
                         <img
@@ -73,14 +73,14 @@ export default function TechStack() {
                     </span>
                   </span>
                   {/* Belakang */}
-                  <span className="absolute inset-0 flex flex-col items-center justify-center gap-2 rounded-2xl bg-ink border border-ink p-4 text-center [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-paper/60">
+                  <span className="absolute inset-0 flex flex-col items-center justify-center gap-2 rounded-2xl bg-night border border-white/10 p-4 text-center [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-white/60">
                       {tech.category}
                     </span>
-                    <span className="text-[12px] sm:text-[13px] leading-relaxed text-paper/90">
+                    <span className="text-[12px] sm:text-[13px] leading-relaxed text-white/90">
                       {tech.description}
                     </span>
-                    <span className="font-mono text-[10px] text-paper/40 mt-1">klik untuk kembali</span>
+                    <span className="font-mono text-[10px] text-white/40 mt-1">click to flip back</span>
                   </span>
                 </button>
               </motion.div>
@@ -89,7 +89,7 @@ export default function TechStack() {
         </div>
 
         <p className="mt-6 text-center font-mono text-xs text-faint">
-          <span className="text-accent">$</span> tip: klik kartu untuk membaliknya
+          <span className="text-accent">$</span> tip: click a card to flip it
         </p>
       </div>
     </section>
@@ -97,24 +97,24 @@ export default function TechStack() {
 }
 
 const technologies: Tech[] = [
-  { name: "React", icon: "/icons/react.svg", category: "Frontend", description: "Library JavaScript untuk membangun UI dari komponen yang reaktif." },
-  { name: "Next.js", icon: "/icons/nextjs.svg", category: "Frontend", description: "Framework React untuk web production: SSR, SSG, dan App Router.", darkInvert: true },
-  { name: "TypeScript", icon: "/icons/typescript.svg", category: "Frontend", description: "JavaScript dengan type safety. Bug ketahuan lebih awal." },
-  { name: "Tailwind CSS", icon: "/icons/tailwindcss.svg", category: "Frontend", description: "Utility-first CSS. Styling cepat, konsisten, dan responsif." },
-  { name: "HTML5", icon: "/icons/html.svg", category: "Frontend", description: "Markup standar untuk struktur setiap halaman web." },
-  { name: "CSS3", icon: "/icons/css.svg", category: "Frontend", description: "Styling, layout, dan animasi untuk web yang responsif." },
-  { name: "Node.js", icon: "/icons/nodejs.svg", category: "Backend", description: "Runtime JavaScript untuk API, server, dan tooling backend." },
-  { name: "Laravel", icon: "/icons/laravel.svg", category: "Backend", description: "Framework PHP untuk backend: routing, ORM, dan autentikasi." },
-  { name: "C#", icon: "/icons/csharp.svg", category: "Backend", description: "Bahasa utama .NET. Dipakai untuk desktop, backend, dan Unity." },
-  { name: "MySQL", icon: "/icons/mysql.svg", category: "Database", description: "Database relasional open-source yang populer untuk web." },
-  { name: "PostgreSQL", icon: "/icons/postgresql.svg", category: "Database", description: "Database relasional dengan fitur SQL yang lengkap." },
-  { name: "MongoDB", icon: "/icons/mongodb.svg", category: "Database", description: "Database NoSQL berbasis dokumen yang fleksibel." },
-  { name: "Flutter", icon: "/icons/flutter.svg", category: "Mobile & Games", description: "Framework Dart untuk aplikasi mobile multi-platform." },
-  { name: "Unity", icon: "/icons/unity.svg", category: "Mobile & Games", description: "Game engine untuk game 2D/3D dan simulasi interaktif.", darkInvert: true },
-  { name: "Git", icon: "/icons/git.svg", category: "Tools", description: "Version control untuk melacak perubahan kode." },
-  { name: "GitHub", icon: "/icons/github.svg", category: "Tools", description: "Hosting repository Git dan kolaborasi open-source.", darkInvert: true },
-  { name: "Postman", icon: "/icons/postman.svg", category: "Tools", description: "Tool untuk testing dan dokumentasi REST API." },
-  { name: "3ds Max", icon: "", category: "Multimedia", description: "Modeling 3D untuk aset dan karakter game." },
-  { name: "Photoshop", icon: "", category: "Multimedia", description: "Editing grafis untuk aset visual dan tekstur." },
-  { name: "After Effects", icon: "", category: "Multimedia", description: "Motion graphics dan post-production untuk video." },
+  { name: "React", icon: "/icons/react.svg", category: "Frontend", description: "JavaScript library for building reactive, component-based UIs." },
+  { name: "Next.js", icon: "/icons/nextjs.svg", category: "Frontend", description: "React framework for production web apps: SSR, SSG, and App Router.", darkInvert: true },
+  { name: "TypeScript", icon: "/icons/typescript.svg", category: "Frontend", description: "JavaScript with type safety. Catches bugs earlier." },
+  { name: "Tailwind CSS", icon: "/icons/tailwindcss.svg", category: "Frontend", description: "Utility-first CSS. Fast, consistent, responsive styling." },
+  { name: "HTML5", icon: "/icons/html.svg", category: "Frontend", description: "Standard markup for structuring web pages." },
+  { name: "CSS3", icon: "/icons/css.svg", category: "Frontend", description: "Styling, layout, and animation for the responsive web." },
+  { name: "Node.js", icon: "/icons/nodejs.svg", category: "Backend", description: "JavaScript runtime for APIs, servers, and backend tooling." },
+  { name: "Laravel", icon: "/icons/laravel.svg", category: "Backend", description: "PHP framework for backends: routing, ORM, and auth." },
+  { name: "C#", icon: "/icons/csharp.svg", category: "Backend", description: "The main .NET language. Used for desktop, backend, and Unity." },
+  { name: "MySQL", icon: "/icons/mysql.svg", category: "Database", description: "Popular open-source relational database for the web." },
+  { name: "PostgreSQL", icon: "/icons/postgresql.svg", category: "Database", description: "Relational database with full-featured SQL." },
+  { name: "MongoDB", icon: "/icons/mongodb.svg", category: "Database", description: "Flexible document-based NoSQL database." },
+  { name: "Flutter", icon: "/icons/flutter.svg", category: "Mobile & Games", description: "Dart framework for multi-platform mobile apps." },
+  { name: "Unity", icon: "/icons/unity.svg", category: "Mobile & Games", description: "Game engine for 2D/3D games and interactive sims.", darkInvert: true },
+  { name: "Git", icon: "/icons/git.svg", category: "Tools", description: "Version control for tracking code changes." },
+  { name: "GitHub", icon: "/icons/github.svg", category: "Tools", description: "Git hosting and open-source collaboration.", darkInvert: true },
+  { name: "Postman", icon: "/icons/postman.svg", category: "Tools", description: "Tool for testing and documenting REST APIs." },
+  { name: "3ds Max", icon: "", category: "Multimedia", description: "3D modeling for game assets and characters." },
+  { name: "Photoshop", icon: "", category: "Multimedia", description: "Image editing for visual assets and textures." },
+  { name: "After Effects", icon: "", category: "Multimedia", description: "Motion graphics and video post-production." },
 ]

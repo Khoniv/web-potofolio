@@ -43,7 +43,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${channel.label}: ${channel.detail}`}
-                  className="group flex items-center justify-between gap-3 rounded-2xl bg-surface border border-border p-4 sm:p-5 hover:border-ink/30 hover:shadow-[0_12px_32px_rgba(22,22,26,0.08)] hover:-translate-y-0.5 transition-all duration-300"
+                  className="group flex items-center justify-between gap-3 rounded-2xl bg-surface/60 backdrop-blur-md border border-border p-4 sm:p-5 hover:border-accent/40 hover:shadow-[0_16px_40px_rgba(22,22,26,0.10)] hover:-translate-y-0.5 transition-all duration-300"
                 >
                   <span className="flex items-center gap-4 min-w-0">
                     <span className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 border transition-colors ${channel.iconClass}`}>

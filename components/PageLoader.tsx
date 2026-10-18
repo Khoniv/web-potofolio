@@ -55,7 +55,7 @@ export default function PageLoader() {
           aria-hidden="true"
         >
           <p className="font-display text-2xl font-bold tracking-tight text-ink">
-            khonif<span className="text-accent">.dev</span>
+            niv<span className="text-accent">.dev</span>
           </p>
           <p className="font-mono text-xs text-muted mt-2 mb-6">loading portfolio…</p>
           <div className="w-48 h-1 rounded-full bg-border overflow-hidden">

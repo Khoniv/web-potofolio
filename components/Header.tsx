@@ -45,55 +45,54 @@ export default function Header() {
   return (
     <div className="fixed top-3 sm:top-5 inset-x-0 z-50 flex justify-center px-3 sm:px-4">
       <nav
-        aria-label="Navigasi utama"
-        className={`w-full max-w-3xl rounded-2xl border bg-surface/85 backdrop-blur-xl transition-all duration-300 ${
-          scrolled ? "border-border shadow-[0_8px_30px_rgba(22,22,26,0.08)]" : "border-transparent shadow-none"
+        aria-label="Main navigation"
+        className={`w-full max-w-4xl rounded-2xl border bg-surface/70 backdrop-blur-xl transition-all duration-300 ${
+          scrolled ? "border-border shadow-[0_8px_30px_rgba(22,22,26,0.10)]" : "border-transparent shadow-none"
         }`}
       >
-        <div className="flex items-center justify-between px-4 sm:px-5 py-3">
+        <div className="flex items-center justify-between pl-5 pr-3 sm:pr-4 py-2.5">
           <button
             onClick={() => handleScroll("home")}
-            className="font-display text-[17px] font-bold tracking-tight text-ink cursor-pointer"
-            aria-label="Kembali ke atas"
+            className="font-display text-[17px] font-bold tracking-tight text-ink cursor-pointer py-1"
+            aria-label="Back to top"
           >
             niv<span className="text-accent">.dev</span>
           </button>
 
-          {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-1">
-            {links.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => handleScroll(link.id)}
-                className={`relative px-3 py-1.5 text-[13px] font-medium rounded-lg transition-colors cursor-pointer ${
-                  activeSection === link.id ? "text-ink" : "text-muted hover:text-ink"
-                }`}
-              >
-                {link.label}
-                {activeSection === link.id && (
-                  <span className="absolute left-3 right-3 -bottom-0.5 h-0.5 rounded-full bg-accent" />
-                )}
-              </button>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-1">
+          {/* Right group: links + divider + theme toggle (+ hamburger on mobile) */}
+          <div className="flex items-center gap-1.5">
+            <div className="hidden md:flex items-center gap-0.5">
+              {links.map((link) => (
+                <button
+                  key={link.id}
+                  onClick={() => handleScroll(link.id)}
+                  className={`relative px-3.5 py-2 text-[13px] font-medium rounded-xl transition-all duration-200 cursor-pointer ${
+                    activeSection === link.id ? "text-ink bg-ink/[0.05]" : "text-muted hover:text-ink hover:bg-ink/[0.04]"
+                  }`}
+                >
+                  {link.label}
+                  {activeSection === link.id && (
+                    <span className="absolute left-3.5 right-3.5 -bottom-px h-0.5 rounded-full bg-accent" />
+                  )}
+                </button>
+              ))}
+            </div>
+            <span className="hidden md:block w-px h-5 bg-border mx-1.5" aria-hidden="true" />
             <ThemeToggle />
-          {/* Mobile toggle */}
-          <button
-            className="md:hidden p-2 -mr-1 text-ink cursor-pointer"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-expanded={isOpen}
-            aria-label={isOpen ? "Tutup menu" : "Buka menu"}
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
-              {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
-              )}
-            </svg>
-          </button>
+            <button
+              className="md:hidden p-2 text-ink cursor-pointer"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-expanded={isOpen}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+                {isOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+                )}
+              </svg>
+            </button>
           </div>
         </div>
 

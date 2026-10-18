@@ -24,7 +24,7 @@ export default function About() {
           <div className="lg:col-span-7">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
               <Fade>
-                <div className="p-5 sm:p-6 rounded-2xl bg-surface border border-border hover:border-accent/40 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(22,22,26,0.10)] transition-all duration-300">
+                <div className="p-5 sm:p-6 rounded-2xl bg-surface/60 backdrop-blur-md border border-border hover:border-accent/40 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(22,22,26,0.10)] transition-all duration-300">
                   <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint mb-2">Profile</p>
                   <h3 className="font-display text-lg font-bold text-ink mb-2">Khonif Zakaria, S.Kom.</h3>
                   <p className="text-sm text-muted leading-relaxed">
@@ -35,7 +35,7 @@ export default function About() {
                 </div>
               </Fade>
               <Fade>
-                <div className="p-5 sm:p-6 rounded-2xl bg-surface border border-border hover:border-accent/40 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(22,22,26,0.10)] transition-all duration-300">
+                <div className="p-5 sm:p-6 rounded-2xl bg-surface/60 backdrop-blur-md border border-border hover:border-accent/40 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(22,22,26,0.10)] transition-all duration-300">
                   <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint mb-2">How I work</p>
                   <h3 className="font-display text-lg font-bold text-ink mb-2">Clean &amp; structured</h3>
                   <p className="text-sm text-muted leading-relaxed">
@@ -50,7 +50,7 @@ export default function About() {
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
               {infoItems.map((item, i) => (
                 <FadeLeft key={i} delay={i * 0.08}>
-                  <div className="p-4 rounded-xl bg-surface border border-border flex flex-col gap-1 hover:border-accent/40 hover:-translate-y-0.5 transition-all duration-300">
+                  <div className="p-4 rounded-xl bg-surface/60 backdrop-blur-md border border-border flex flex-col gap-1 hover:border-accent/40 hover:-translate-y-0.5 transition-all duration-300">
                     <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-faint">{item.label}</span>
                     {item.href ? (
                       <a href={item.href} className="text-sm font-semibold text-ink hover:text-accent transition-colors break-all">
