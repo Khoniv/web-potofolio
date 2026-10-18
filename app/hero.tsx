@@ -67,7 +67,7 @@ export default function Hero() {
               Available for work
             </div>
 
-            <p className="font-mono text-[13px] text-muted mb-3">Hello world, I&apos;m</p>
+            <p className="font-mono text-[13px] text-muted mb-3"><span className="text-accent">//</span> hello world, i&apos;m</p>
             <h1 className="font-display font-bold tracking-tight text-ink text-balance text-[clamp(2.4rem,6vw,4.2rem)] leading-[1.05]">
               Khonif Zakaria, <span className="text-accent">S.Kom.</span>
             </h1>
@@ -110,7 +110,7 @@ export default function Hero() {
             </div>
 
             <div className="mt-8 pt-6 border-t border-border">
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-faint mb-3">Find me online</p>
+              <p className="font-mono text-[11px] tracking-[0.2em] text-faint mb-3"><span className="text-accent">$</span> find me online</p>
               <div className="flex flex-wrap gap-2.5">
                 {socialMediaList.map((item, i) => (
                   <a

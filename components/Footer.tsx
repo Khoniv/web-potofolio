@@ -48,7 +48,7 @@ export default function Footer() {
       </div>
       <div className="border-t border-white/10">
         <p className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-4 text-[11px] font-mono text-white/35 text-center md:text-left">
-          Built with Next.js &amp; Tailwind CSS
+          <span className="text-accent">//</span> built with next.js &amp; tailwind css
         </p>
       </div>
     </footer>
