@@ -324,7 +324,7 @@ const projectList = [
     ],
     tech: ["Next.js 15", "React 19", "Clerk Auth", "Tailwind CSS", "Inngest"],
     githubUrl: "https://github.com/Khoniv/capit-store",
-    liveDemoUrl: "https://github.com/Khoniv/capit-store",
+    liveDemoUrl: "https://capit-store-seven.vercel.app/",
     isVideoProject: false,
   },
   {
@@ -345,7 +345,7 @@ const projectList = [
     ],
     tech: ["Laravel 11", "PHP 8.3", "Livewire 3", "MySQL", "Tailwind CSS"],
     githubUrl: "https://github.com/Khoniv/news-5",
-    liveDemoUrl: "https://github.com/Khoniv/news-5",
+    liveDemoUrl: "https://news-5-gamma.vercel.app/",
     isVideoProject: false,
   },
   {
@@ -366,7 +366,7 @@ const projectList = [
     ],
     tech: ["C#", ".NET Framework", "Guna.UI2", "SQL Server", "Windows Forms"],
     githubUrl: "https://github.com/Khoniv/park-eazy",
-    liveDemoUrl: "https://github.com/Khoniv/park-eazy",
+
     isVideoProject: false,
   },
   {
@@ -387,7 +387,7 @@ const projectList = [
     ],
     tech: ["Flutter", "Dart", "Clean Architecture", "REST API", "Mobile UX"],
     githubUrl: "https://github.com/Khoniv/jbag-jual-beli-akun-game.git",
-    liveDemoUrl: "https://github.com/Khoniv/jbag-jual-beli-akun-game.git",
+
     isVideoProject: false,
   },
   {

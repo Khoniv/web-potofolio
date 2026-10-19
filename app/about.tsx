@@ -32,7 +32,7 @@ export default function About() {
                 >
                   <div>
                     <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint mb-2">Profile</p>
-                    <h3 className="font-display text-lg font-bold text-ink mb-2">Khonif Zakaria, S.Kom.</h3>
+                    <h3 className="font-display text-lg font-bold text-ink mb-2">Khonif Zakaria</h3>
                     <p className="text-sm text-muted leading-relaxed">
                       I graduated in Informatics (S1) from Universitas Amikom Purwokerto with a 3.78 GPA.
                       I work on web apps, backend services, mobile apps, desktop systems,
@@ -90,7 +90,7 @@ export default function About() {
 }
 
 const infoItems = [
-  { label: "Name", value: "Khonif Zakaria, S.Kom." },
+  { label: "Name", value: "Khonif Zakaria" },
   { label: "Location", value: "Banyumas, Central Java, ID" },
   { label: "Phone / WhatsApp", value: "+62 815 8522 1246", href: "https://wa.me/6281585221246" },
   { label: "Degree", value: "S.Kom., Informatics (S1)" },
