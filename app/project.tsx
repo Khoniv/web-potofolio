@@ -3,7 +3,6 @@ import Image from "next/image"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import SectionHeader from "@/components/SectionHeader"
-import { HoverCard } from "@/components/ui/card-hover-effect"
 
 type CategoryFilter = "ALL" | "WEB" | "GAMES_MOBILE" | "DESKTOP_3D"
 
@@ -67,13 +66,12 @@ export default function Project() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {filteredProjects.map((project, index) => (
-            <HoverCard key={`project-${project.index}`} layoutId="projectHover" className="h-full">
             <motion.article
+              key={`project-${project.index}`}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: Math.min(index * 0.07, 0.28) }}
-              className="h-full"
             >
               <button
                 onClick={() => setIsOpen(project.index)}
@@ -115,7 +113,6 @@ export default function Project() {
                 </div>
               </button>
             </motion.article>
-            </HoverCard>
           ))}
         </div>
 

@@ -1,7 +1,6 @@
 "use client"
 import { motion } from "motion/react"
 import SectionHeader from "@/components/SectionHeader"
-import { HoverCard } from "@/components/ui/card-hover-effect"
 
 export default function Experience() {
   return (
@@ -32,7 +31,6 @@ export default function Experience() {
                   className="absolute left-0 sm:left-[3px] top-6 h-[15px] w-[15px] rounded-full border-[3px] border-accent bg-paper group-hover:scale-125 transition-transform"
                   aria-hidden="true"
                 />
-                <HoverCard layoutId="expHover">
                 <article className="rounded-2xl bg-surface/60 backdrop-blur-md border border-border p-5 sm:p-7 hover:border-accent/40 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(22,22,26,0.10)] transition-all duration-300">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-3">
                     <div>
@@ -79,7 +77,6 @@ export default function Experience() {
                     </a>
                   )}
                 </article>
-                </HoverCard>
               </motion.div>
             ))}
           </div>
