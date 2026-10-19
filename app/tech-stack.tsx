@@ -52,7 +52,7 @@ export default function TechStack() {
                   }}
                   aria-pressed={isFlipped}
                   aria-label={`${tech.name}: click to flip the card`}
-                  className="relative block w-full h-40 sm:h-44 cursor-pointer [transform-style:preserve-3d] transition-transform duration-500 ease-out motion-reduce:transition-none outline-none focus-visible:ring-2 focus-visible:ring-accent/60 rounded-2xl"
+                  className="relative block w-full h-40 sm:h-44 cursor-pointer [transform-style:preserve-3d] [will-change:transform] transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none outline-none focus-visible:ring-2 focus-visible:ring-accent/60 rounded-2xl"
                   style={isFlipped ? { transform: "rotateY(180deg)" } : undefined}
                 >
                   {/* Depan */}
@@ -60,6 +60,7 @@ export default function TechStack() {
                     <GlowCard
                       customSize
                       glowColor="mono"
+                      backdropBlur={false}
                       className="h-full w-full text-center transition-shadow duration-300 hover:shadow-[0_12px_32px_rgba(46,75,255,0.18)]"
                     >
                       <span className="flex flex-col items-center justify-center gap-3 h-full text-center">
@@ -94,6 +95,7 @@ export default function TechStack() {
                     <GlowCard
                       customSize
                       glowColor="mono"
+                      backdropBlur={false}
                       className="h-full w-full text-center"
                     >
                       <span className="flex flex-col items-center justify-center gap-2 h-full text-center">

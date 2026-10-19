@@ -9,6 +9,7 @@ interface GlowCardProps {
   width?: string | number;
   height?: string | number;
   customSize?: boolean; // When true, ignores size prop and uses width/height or className
+  backdropBlur?: boolean; // default true; set false in perf-critical 3D contexts (e.g. flip cards)
 }
 
 const glowColorMap = {
@@ -33,7 +34,8 @@ const GlowCard: React.FC<GlowCardProps> = ({
   size = 'md',
   width,
   height,
-  customSize = false
+  customSize = false,
+  backdropBlur = true
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
@@ -187,7 +189,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
           shadow-[0_1rem_2rem_-1rem_black]
           p-4
           gap-4
-          backdrop-blur-[5px]
+          ${backdropBlur ? 'backdrop-blur-[5px]' : ''}
           ${className}
         `}
       >
