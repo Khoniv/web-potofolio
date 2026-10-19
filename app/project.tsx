@@ -308,7 +308,7 @@ const projectList = [
   },
   {
     index: 1,
-    imagePath: "/images/capitstore-showcase.svg",
+    imagePath: "/images/capitstore-showcase.png",
     title: "Capit Store: Footwear E-Commerce",
     category: "Fullstack Web, Next.js",
     categoryType: "WEB",
