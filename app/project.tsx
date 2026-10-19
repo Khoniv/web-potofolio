@@ -371,7 +371,7 @@ const projectList = [
   },
   {
     index: 4,
-    imagePath: "/images/jbag-showcase.svg",
+    imagePath: "/images/jbag-showcase.png",
     title: "JBAG: Game Account Marketplace",
     category: "Mobile App, Flutter",
     categoryType: "GAMES_MOBILE",
