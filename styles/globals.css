@@ -110,6 +110,37 @@ body {
   text-wrap: balance;
 }
 
+/* ——— Mono glow system ———
+   .solid-glow: solid ink surfaces become slightly translucent + glowing.
+   Light theme: translucent black + dark glow. Dark theme: translucent
+   white + white glow. Text colors are intentionally untouched. */
+.solid-glow {
+  background-color: rgb(22 22 26 / 0.88);
+  box-shadow:
+    0 0 22px rgb(22 22 26 / 0.28),
+    0 10px 30px rgb(22 22 26 / 0.14);
+}
+.dark .solid-glow {
+  background-color: rgb(244 244 242 / 0.9);
+  box-shadow:
+    0 0 26px rgb(255 255 255 / 0.22),
+    0 10px 30px rgb(0 0 0 / 0.45);
+}
+
+/* .hover-glow: mono border glow for any hoverable element.
+   Light: black glow. Dark: white glow.
+   No transition of its own: it rides on the element's existing
+   transition (transition-all covers box-shadow). Skipped on
+   .solid-glow elements, which already glow constantly. */
+.hover-glow:hover:not(.solid-glow) {
+  border-color: rgb(22 22 26 / 0.55);
+  box-shadow: 0 0 16px rgb(22 22 26 / 0.16);
+}
+.dark .hover-glow:hover:not(.solid-glow) {
+  border-color: rgb(255 255 255 / 0.55);
+  box-shadow: 0 0 18px rgb(255 255 255 / 0.14);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

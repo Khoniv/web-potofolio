@@ -66,7 +66,7 @@ export default function Header() {
                 <button
                   key={link.id}
                   onClick={() => handleScroll(link.id)}
-                  className={`relative px-3.5 py-2 text-[13px] font-medium rounded-xl transition-all duration-200 cursor-pointer ${
+                  className={`relative px-3.5 py-2 text-[13px] font-medium rounded-xl transition-all duration-200 cursor-pointer hover-glow ${
                     activeSection === link.id ? "text-ink bg-ink/[0.05]" : "text-muted hover:text-ink hover:bg-ink/[0.04]"
                   }`}
                 >
