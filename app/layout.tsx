@@ -3,6 +3,7 @@ import Script from "next/script"
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google"
 import "../styles/globals.css"
 import PageLoader from "@/components/PageLoader"
+import ParticleBackground from "@/components/ParticleBackground"
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -78,7 +79,7 @@ export default function RootLayout({
           id="theme-init"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('khonif-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`,
+            __html: `(function(){try{var t=localStorage.getItem('khonif-theme');var d=t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d){document.documentElement.classList.add('dark')}document.documentElement.dataset.theme=d?'dark':'light'}catch(e){}})()`,
           }}
         />
         <script
@@ -99,6 +100,7 @@ export default function RootLayout({
           }}
         />
         <PageLoader />
+        <ParticleBackground />
         {children}
       </body>
     </html>

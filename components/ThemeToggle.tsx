@@ -14,6 +14,7 @@ export default function ThemeToggle() {
     const next = !dark
     setDark(next)
     document.documentElement.classList.toggle("dark", next)
+    document.documentElement.dataset.theme = next ? "dark" : "light"
     try {
       localStorage.setItem("khonif-theme", next ? "dark" : "light")
     } catch {

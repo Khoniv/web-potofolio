@@ -60,9 +60,8 @@ body {
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* subtle dotted blueprint grid */
-  background-image: radial-gradient(var(--dot) 1px, transparent 1px);
-  background-size: 26px 26px;
+  /* page backdrop is now the ParticleDrift canvas (see ParticleBackground);
+     body color remains as the loading fallback */
   overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
