@@ -60,6 +60,7 @@ body {
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
   /* page backdrop is now the ParticleDrift canvas (see ParticleBackground);
      body color remains as the loading fallback */
   overflow-x: hidden;

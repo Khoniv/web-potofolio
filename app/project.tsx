@@ -44,7 +44,7 @@ export default function Project() {
         />
 
         {/* Filter pills */}
-        <div className="flex flex-wrap gap-2 mb-8 sm:mb-10" role="group" aria-label="Filter projects by category">
+        <div className="flex flex-nowrap gap-2 mb-8 sm:mb-10 overflow-x-auto pb-1 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="group" aria-label="Filter projects by category">
           {filterTabs.map((tab) => {
             const isActive = activeFilter === tab.key
             return (
@@ -52,7 +52,7 @@ export default function Project() {
                 key={tab.key}
                 onClick={() => setActiveFilter(tab.key as CategoryFilter)}
                 aria-pressed={isActive}
-                className={`cursor-pointer px-4 py-2 rounded-full text-[13px] font-medium transition-all duration-300 border ${
+                className={`cursor-pointer shrink-0 px-4 py-2 rounded-full text-[13px] font-medium transition-all duration-300 border ${
                   isActive
                     ? "bg-ink text-paper border-ink"
                     : "bg-surface/60 backdrop-blur-md text-muted border-border hover:border-ink/40 hover:text-ink"
