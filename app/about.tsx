@@ -3,6 +3,7 @@ import Fade from "@/components/animations/Fade"
 import FadeLeft from "@/components/animations/FadeLeft"
 import SectionHeader from "@/components/SectionHeader"
 import PhotoCard from "@/components/PhotoCard"
+import { GlowCard } from "@/components/ui/spotlight-card"
 
 export default function About() {
   return (
@@ -23,26 +24,38 @@ export default function About() {
           {/* Bio */}
           <div className="lg:col-span-7">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-              <Fade>
-                <div className="p-5 sm:p-6 rounded-2xl bg-surface/60 backdrop-blur-md border border-border hover:border-accent/40 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(22,22,26,0.10)] transition-all duration-300">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint mb-2">Profile</p>
-                  <h3 className="font-display text-lg font-bold text-ink mb-2">Khonif Zakaria, S.Kom.</h3>
-                  <p className="text-sm text-muted leading-relaxed">
-                    I graduated in Informatics (S1) from Universitas Amikom Purwokerto with a 3.78 GPA.
-                    I work on web apps, backend services, mobile apps, desktop systems,
-                    and 3D games built with Unity.
-                  </p>
-                </div>
+              <Fade className="h-full">
+                <GlowCard
+                  customSize
+                  glowColor="mono"
+                  className="h-full p-5! sm:p-6! hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div>
+                    <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint mb-2">Profile</p>
+                    <h3 className="font-display text-lg font-bold text-ink mb-2">Khonif Zakaria, S.Kom.</h3>
+                    <p className="text-sm text-muted leading-relaxed">
+                      I graduated in Informatics (S1) from Universitas Amikom Purwokerto with a 3.78 GPA.
+                      I work on web apps, backend services, mobile apps, desktop systems,
+                      and 3D games built with Unity.
+                    </p>
+                  </div>
+                </GlowCard>
               </Fade>
-              <Fade>
-                <div className="p-5 sm:p-6 rounded-2xl bg-surface/60 backdrop-blur-md border border-border hover:border-accent/40 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(22,22,26,0.10)] transition-all duration-300">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint mb-2">How I work</p>
-                  <h3 className="font-display text-lg font-bold text-ink mb-2">Clean &amp; structured</h3>
-                  <p className="text-sm text-muted leading-relaxed">
-                    I like solving problems analytically and writing clean, well-structured code.
-                    Comfortable working in agile teams and picking up new tools fast.
-                  </p>
-                </div>
+              <Fade className="h-full">
+                <GlowCard
+                  customSize
+                  glowColor="mono"
+                  className="h-full p-5! sm:p-6! hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div>
+                    <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint mb-2">How I work</p>
+                    <h3 className="font-display text-lg font-bold text-ink mb-2">Clean &amp; structured</h3>
+                    <p className="text-sm text-muted leading-relaxed">
+                      I like solving problems analytically and writing clean, well-structured code.
+                      Comfortable working in agile teams and picking up new tools fast.
+                    </p>
+                  </div>
+                </GlowCard>
               </Fade>
             </div>
 

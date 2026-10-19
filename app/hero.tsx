@@ -90,7 +90,7 @@ export default function Hero() {
             <div className="mt-7 flex flex-col sm:flex-row flex-wrap gap-3">
               <button
                 onClick={() => handleScroll("projects")}
-                className="cursor-pointer inline-flex items-center justify-center gap-2 bg-ink text-paper text-sm font-semibold px-6 py-3.5 rounded-xl hover:opacity-90 transition-all duration-300 hover:-translate-y-0.5 shadow-[0_8px_20px_rgba(22,22,26,0.18)]"
+                className="cursor-pointer inline-flex items-center justify-center gap-2 bg-ink/90 text-paper text-sm font-semibold px-6 py-3.5 rounded-xl hover:opacity-90 transition-all duration-300 hover:-translate-y-0.5 shadow-[0_8px_20px_rgba(22,22,26,0.18)]"
               >
                 View projects
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
