@@ -1,6 +1,7 @@
 "use client"
 import { motion } from "motion/react"
 import SectionHeader from "@/components/SectionHeader"
+import { GlowCard } from "@/components/ui/spotlight-card"
 
 export default function Certifications() {
   return (
@@ -24,9 +25,16 @@ export default function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.07 }}
-              className="group rounded-2xl bg-surface/60 backdrop-blur-md border border-border p-5 sm:p-6 flex items-start gap-4 hover:border-accent/50 hover:shadow-[0_12px_40px_rgba(46,75,255,0.10)] hover:-translate-y-1 transition-all duration-300 glow-border"
+              className="group block h-full"
               aria-label={`Open certificate: ${cert.title} (Google Drive document, new tab)`}
             >
+              <GlowCard
+                customSize
+                glowColor="mono"
+                backdropBlur={false}
+                className="h-full p-5! sm:p-6! block! hover:-translate-y-1 transition-transform duration-300"
+              >
+              <div className="flex items-start gap-4">
               <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-accent-soft border border-accent/15 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-paper transition-colors duration-300">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
@@ -44,6 +52,8 @@ export default function Certifications() {
                 <p className="text-[13px] text-muted mt-1">{cert.issuer}</p>
                 <p className="text-[13px] text-faint mt-1.5 leading-relaxed">{cert.description}</p>
               </div>
+              </div>
+              </GlowCard>
             </motion.a>
           ))}
         </div>

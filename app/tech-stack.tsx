@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { motion } from "motion/react"
 import SectionHeader from "@/components/SectionHeader"
+import { GlowCard } from "@/components/ui/spotlight-card"
 interface Tech {
   name: string
   icon: string
@@ -54,7 +55,14 @@ export default function TechStack() {
                   style={isFlipped ? { transform: "rotateY(180deg)" } : undefined}
                 >
                   {/* Depan */}
-                  <span className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-2xl bg-surface/60 backdrop-blur-md border border-border p-4 text-center [backface-visibility:hidden] transition-all duration-300 glow-border">
+                  <span className="absolute inset-0 [backface-visibility:hidden]">
+                    <GlowCard
+                      customSize
+                      glowColor="mono"
+                      backdropBlur={false}
+                      className="h-full w-full p-4! block!"
+                    >
+                    <span className="flex flex-col items-center justify-center gap-3 h-full text-center">
                     <span className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
                       {tech.icon ? (
                         <img
@@ -78,9 +86,18 @@ export default function TechStack() {
                         {tech.category}
                       </span>
                     </span>
+                    </span>
+                    </GlowCard>
                   </span>
                   {/* Belakang */}
-                  <span className="absolute inset-0 flex flex-col items-center justify-center gap-2 rounded-2xl bg-surface/60 backdrop-blur-md border border-border p-4 text-center [backface-visibility:hidden] [transform:rotateY(180deg)] transition-all duration-300 glow-border">
+                  <span className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                    <GlowCard
+                      customSize
+                      glowColor="mono"
+                      backdropBlur={false}
+                      className="h-full w-full p-4! block!"
+                    >
+                    <span className="flex flex-col items-center justify-center gap-2 h-full text-center">
                     <span className="font-mono text-[10px] uppercase tracking-widest text-faint">
                       {tech.category}
                     </span>
@@ -88,6 +105,8 @@ export default function TechStack() {
                       {tech.description}
                     </span>
                     <span className="font-mono text-[10px] text-faint mt-1">click to flip back</span>
+                    </span>
+                    </GlowCard>
                   </span>
                 </div>
               </motion.div>

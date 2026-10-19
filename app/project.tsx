@@ -3,6 +3,7 @@ import Image from "next/image"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import SectionHeader from "@/components/SectionHeader"
+import { GlowCard } from "@/components/ui/spotlight-card"
 
 type CategoryFilter = "ALL" | "WEB" | "GAMES_MOBILE" | "DESKTOP_3D"
 
@@ -73,9 +74,15 @@ export default function Project() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: Math.min(index * 0.07, 0.28) }}
             >
+              <GlowCard
+                customSize
+                glowColor="mono"
+                backdropBlur={false}
+                className="h-full p-0! block! overflow-hidden hover:-translate-y-1.5 transition-transform duration-300"
+              >
               <button
                 onClick={() => setIsOpen(project.index)}
-                className="group w-full text-left cursor-pointer rounded-2xl bg-surface/60 backdrop-blur-md border border-border overflow-hidden hover:border-ink/25 hover:shadow-[0_16px_48px_rgba(22,22,26,0.10)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full glow-border"
+                className="group w-full h-full text-left cursor-pointer flex flex-col"
                 aria-label={`View details of ${project.title}`}
               >
                 <div className="relative aspect-[16/10] overflow-hidden bg-paper">
@@ -112,6 +119,7 @@ export default function Project() {
                   </span>
                 </div>
               </button>
+              </GlowCard>
             </motion.article>
           ))}
         </div>

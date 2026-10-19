@@ -63,7 +63,12 @@ export default function About() {
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
               {infoItems.map((item, i) => (
                 <FadeLeft key={i} delay={i * 0.08}>
-                  <div className="p-4 rounded-xl bg-surface/60 backdrop-blur-md border border-border flex flex-col gap-1 hover:border-accent/40 hover:-translate-y-0.5 transition-all duration-300 glow-border">
+                  <GlowCard
+                    customSize
+                    glowColor="mono"
+                    backdropBlur={false}
+                    className="p-4! flex! flex-col gap-1! hover:-translate-y-0.5 transition-transform duration-300"
+                  >
                     <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-faint">{item.label}</span>
                     {item.href ? (
                       <a href={item.href} className="text-sm font-semibold text-ink hover:text-accent transition-colors break-all">
@@ -72,7 +77,7 @@ export default function About() {
                     ) : (
                       <span className="text-sm font-semibold text-ink">{item.value}</span>
                     )}
-                  </div>
+                  </GlowCard>
                 </FadeLeft>
               ))}
             </div>

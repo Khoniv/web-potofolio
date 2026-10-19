@@ -1,4 +1,5 @@
 import SectionHeader from "@/components/SectionHeader"
+import { GlowCard } from "@/components/ui/spotlight-card"
 import Fade from "@/components/animations/Fade"
 
 export default function Contact() {
@@ -43,8 +44,15 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${channel.label}: ${channel.detail}`}
-                  className="group flex items-center justify-between gap-3 rounded-2xl bg-surface/60 backdrop-blur-md border border-border p-4 sm:p-5 hover:border-accent/40 hover:shadow-[0_16px_40px_rgba(22,22,26,0.10)] hover:-translate-y-0.5 transition-all duration-300 glow-border"
+                  className="group block h-full"
                 >
+                  <GlowCard
+                    customSize
+                    glowColor="mono"
+                    backdropBlur={false}
+                    className="h-full p-4! sm:p-5! block! hover:-translate-y-0.5 transition-transform duration-300"
+                  >
+                  <span className="flex items-center justify-between gap-3 h-full">
                   <span className="flex items-center gap-4 min-w-0">
                     <span className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 border transition-colors ${channel.iconClass}`}>
                       {channel.icon}
@@ -57,6 +65,8 @@ export default function Contact() {
                   <svg className="w-4 h-4 flex-shrink-0 text-faint group-hover:text-ink group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
+                  </span>
+                  </GlowCard>
                 </a>
               </Fade>
             ))}
