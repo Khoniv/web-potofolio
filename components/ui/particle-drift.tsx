@@ -176,6 +176,17 @@ document.addEventListener("DOMContentLoaded", () => {
         mouse.y = e.clientY - rect.top;
     });
 
+    // Cursor position relayed by the parent page (the canvas is
+    // pointer-events:none inside a pointer-events:none iframe, so it never
+    // receives pointer events directly). Coordinates are viewport-based and
+    // the canvas fills the viewport, so no offset math is needed.
+    window.addEventListener('message', e => {
+        const d = e.data;
+        if (!d || d.type !== 'threeui-mouse') return;
+        mouse.x = d.x;
+        mouse.y = d.y;
+    });
+
     function initParticles() {
         nodes = Array.from({ length: 90 }).map(() => ({
             x: Math.random() * width,
