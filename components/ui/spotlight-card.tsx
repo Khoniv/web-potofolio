@@ -111,6 +111,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
       pointer-events: none;
       content: "";
       position: absolute;
+      z-index: 1; /* above card content so the ring stays visible over images */
       inset: calc(var(--border-size) * -1);
       border: var(--border-size) solid transparent;
       border-radius: calc(var(--radius) * 1px);
