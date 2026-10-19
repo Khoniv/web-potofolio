@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { motion } from "motion/react"
 import SectionHeader from "@/components/SectionHeader"
+import { GlowCard } from "@/components/ui/spotlight-card"
 
 interface Tech {
   name: string
@@ -39,39 +40,53 @@ export default function TechStack() {
                 transition={{ duration: 0.4, delay: Math.min(i * 0.03, 0.3) }}
                 className="[perspective:1200px]"
               >
-                <button
+                <div
+                  role="button"
+                  tabIndex={0}
                   onClick={() => toggle(tech.name)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault()
+                      toggle(tech.name)
+                    }
+                  }}
                   aria-pressed={isFlipped}
                   aria-label={`${tech.name}: click to flip the card`}
-                  className="relative block w-full h-40 sm:h-44 cursor-pointer [transform-style:preserve-3d] transition-transform duration-500 ease-out motion-reduce:transition-none"
-                  style={{ transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)" }}
+                  className="relative block w-full h-40 sm:h-44 cursor-pointer [transform-style:preserve-3d] transition-transform duration-500 ease-out motion-reduce:transition-none outline-none focus-visible:ring-2 focus-visible:ring-accent/60 rounded-2xl"
+                  style={isFlipped ? { transform: "rotateY(180deg)" } : undefined}
                 >
                   {/* Depan */}
-                  <span className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-2xl bg-surface/60 backdrop-blur-md border border-border p-4 text-center [backface-visibility:hidden] hover:border-accent/50 hover:shadow-[0_12px_32px_rgba(46,75,255,0.10)] transition-colors duration-300">
-                    <span className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
-                      {tech.icon ? (
-                        <img
-                          src={tech.icon}
-                          alt=""
-                          aria-hidden="true"
-                          loading="lazy"
-                          className={`w-full h-full object-contain ${tech.darkInvert ? "dark:invert" : ""}`}
-                        />
-                      ) : (
-                        <span className="w-full h-full flex items-center justify-center font-display font-bold text-lg text-accent bg-accent-soft rounded-xl">
-                          {tech.name.charAt(0)}
+                  <GlowCard
+                    customSize
+                    glowColor="blue"
+                    className="absolute inset-0 [backface-visibility:hidden] text-center transition-shadow duration-300 hover:shadow-[0_12px_32px_rgba(46,75,255,0.18)]"
+                  >
+                    <span className="flex flex-col items-center justify-center gap-3 h-full text-center">
+                      <span className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
+                        {tech.icon ? (
+                          <img
+                            src={tech.icon}
+                            alt=""
+                            aria-hidden="true"
+                            loading="lazy"
+                            className={`w-full h-full object-contain ${tech.darkInvert ? "dark:invert" : ""}`}
+                          />
+                        ) : (
+                          <span className="w-full h-full flex items-center justify-center font-display font-bold text-lg text-accent bg-accent-soft rounded-xl">
+                            {tech.name.charAt(0)}
+                          </span>
+                        )}
+                      </span>
+                      <span>
+                        <span className="block text-[13px] sm:text-sm font-semibold text-ink leading-tight">
+                          {tech.name}
                         </span>
-                      )}
-                    </span>
-                    <span>
-                      <span className="block text-[13px] sm:text-sm font-semibold text-ink leading-tight">
-                        {tech.name}
-                      </span>
-                      <span className="block font-mono text-[10px] uppercase tracking-widest text-faint mt-1">
-                        {tech.category}
+                        <span className="block font-mono text-[10px] uppercase tracking-widest text-faint mt-1">
+                          {tech.category}
+                        </span>
                       </span>
                     </span>
-                  </span>
+                  </GlowCard>
                   {/* Belakang */}
                   <span className="absolute inset-0 flex flex-col items-center justify-center gap-2 rounded-2xl bg-night/75 backdrop-blur-xl border border-white/10 p-4 text-center [backface-visibility:hidden] [transform:rotateY(180deg)]">
                     <span className="font-mono text-[10px] uppercase tracking-widest text-white/60">
@@ -82,7 +97,7 @@ export default function TechStack() {
                     </span>
                     <span className="font-mono text-[10px] text-white/40 mt-1">click to flip back</span>
                   </span>
-                </button>
+                </div>
               </motion.div>
             )
           })}
