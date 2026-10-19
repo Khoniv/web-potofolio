@@ -69,7 +69,7 @@ export default function Hero() {
 
             <p className="font-mono text-[13px] text-muted mb-3"><span className="text-accent">//</span> hello world, i&apos;m</p>
             <h1 className="font-display font-bold tracking-tight text-ink text-balance text-[clamp(2.4rem,6vw,4.2rem)] leading-[1.05]">
-              Khonif Zakaria
+              Khonif <span className="text-accent">Zakaria</span>
             </h1>
 
             {/* Typewriter */}

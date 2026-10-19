@@ -254,7 +254,7 @@ export default function Project() {
                       No public repository
                     </span>
                   )}
-                  {activeProject.liveDemoUrl && (
+                  {activeProject.liveDemoUrl ? (
                     <a
                       href={activeProject.liveDemoUrl}
                       target="_blank"
@@ -266,7 +266,14 @@ export default function Project() {
                       </svg>
                       {activeProject.isVideoProject ? "Watch on YouTube" : "Live demo"}
                     </a>
-                  )}
+                  ) : activeProject.demoDisabledLabel ? (
+                    <span
+                      aria-disabled="true"
+                      className="flex-1 inline-flex justify-center items-center gap-2 text-sm font-medium text-faint border border-border py-3 px-4 rounded-xl cursor-not-allowed"
+                    >
+                      {activeProject.demoDisabledLabel}
+                    </span>
+                  ) : null}
                 </div>
               </motion.div>
             </div>
@@ -353,6 +360,7 @@ const projectList = [
     imagePath: "/images/parkeazy-showcase.png",
     title: "ParkEazy: Parking Management System",
     category: "Desktop, C# .NET",
+    demoDisabledLabel: "Desktop app — no live demo",
     categoryType: "DESKTOP_3D",
     shortDescription: "Windows desktop app for parking operations. C# and .NET Framework with SQL Server.",
     fullDescription: "ParkEazy is a desktop app for running commercial parking lots. Built with C# and .NET Framework 4.7.2, it shows 12 parking bays on a live visual grid, registers license plates, computes hourly rates, and stores transactions in SQL Server.",
@@ -374,6 +382,7 @@ const projectList = [
     imagePath: "/images/jbag-showcase.png",
     title: "JBAG: Game Account Marketplace",
     category: "Mobile App, Flutter",
+    demoDisabledLabel: "Mobile app — no live demo",
     categoryType: "GAMES_MOBILE",
     shortDescription: "Mobile marketplace for trading game accounts. Flutter and Dart, with Indonesian e-wallet payments.",
     fullDescription: "JBAG (Jual Beli Akun Game) is a mobile marketplace for trading verified game accounts safely. Built with Flutter using Clean Architecture: catalog search, seller verification, checkout flow, and payments via GoPay, DANA, OVO, and bank virtual accounts.",
