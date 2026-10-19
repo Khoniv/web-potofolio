@@ -33,7 +33,7 @@ export default function Experience() {
                   aria-hidden="true"
                 />
                 <HoverCard layoutId="expHover">
-                <article className="rounded-2xl bg-surface/60 backdrop-blur-md border border-border p-5 sm:p-7 hover:border-accent/40 hover:-translate-y-1 transition-all duration-300 hover-glow">
+                <article className="rounded-2xl bg-surface/60 backdrop-blur-md border border-border p-5 sm:p-7 hover:border-accent/40 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(22,22,26,0.10)] transition-all duration-300">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-3">
                     <div>
                       <h3 className="font-display text-lg sm:text-xl font-bold text-ink tracking-tight">

@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image"
-import { useState, useEffect, useId } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import SectionHeader from "@/components/SectionHeader"
 import { HoverCard } from "@/components/ui/card-hover-effect"
@@ -10,7 +10,6 @@ type CategoryFilter = "ALL" | "WEB" | "GAMES_MOBILE" | "DESKTOP_3D"
 export default function Project() {
   const [isOpen, setIsOpen] = useState<number | null>(null)
   const [activeFilter, setActiveFilter] = useState<CategoryFilter>("ALL")
-  const uid = useId()
 
   useEffect(() => {
     document.body.style.overflow = isOpen !== null ? "hidden" : "unset"
@@ -53,9 +52,9 @@ export default function Project() {
                 key={tab.key}
                 onClick={() => setActiveFilter(tab.key as CategoryFilter)}
                 aria-pressed={isActive}
-                className={`cursor-pointer px-4 py-2 rounded-full text-[13px] font-medium transition-all duration-300 border hover-glow ${
+                className={`cursor-pointer px-4 py-2 rounded-full text-[13px] font-medium transition-all duration-300 border ${
                   isActive
-                    ? "solid-glow text-paper border-ink"
+                    ? "bg-ink text-paper border-ink"
                     : "bg-surface/60 backdrop-blur-md text-muted border-border hover:border-ink/40 hover:text-ink"
                 }`}
               >
@@ -76,26 +75,19 @@ export default function Project() {
               transition={{ duration: 0.5, delay: Math.min(index * 0.07, 0.28) }}
               className="h-full"
             >
-              <motion.button
-                layoutId={`project-card-${uid}-${project.index}`}
-                transition={{ type: "spring", damping: 30, stiffness: 300 }}
+              <button
                 onClick={() => setIsOpen(project.index)}
-                className="group w-full text-left cursor-pointer rounded-2xl bg-surface/60 backdrop-blur-md border border-border overflow-hidden hover:border-ink/25 hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full hover-glow"
+                className="group w-full text-left cursor-pointer rounded-2xl bg-surface/60 backdrop-blur-md border border-border overflow-hidden hover:border-ink/25 hover:shadow-[0_16px_48px_rgba(22,22,26,0.10)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full"
                 aria-label={`View details of ${project.title}`}
               >
                 <div className="relative aspect-[16/10] overflow-hidden bg-paper">
-                  <motion.div
-                    layoutId={`project-image-${uid}-${project.index}`}
-                    className="absolute inset-0"
-                  >
-                    <Image
-                      src={project.imagePath}
-                      alt={project.title}
-                      fill
-                      className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                  </motion.div>
+                  <Image
+                    src={project.imagePath}
+                    alt={project.title}
+                    fill
+                    className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
                   <div className="absolute top-3 right-3 flex flex-wrap gap-1.5 justify-end">
                     {project.tech.slice(0, 3).map((tech, i) => (
                       <span key={i} className="text-[10px] font-mono font-medium bg-surface/90 backdrop-blur text-ink px-2 py-0.5 rounded-md border border-border">
@@ -108,12 +100,9 @@ export default function Project() {
                   <p className="font-mono text-[11px] uppercase tracking-widest text-accent mb-2">
                     {project.category}
                   </p>
-                  <motion.h3
-                    layoutId={`project-title-${uid}-${project.index}`}
-                    className="font-display text-lg font-bold text-ink tracking-tight leading-snug mb-2"
-                  >
+                  <h3 className="font-display text-lg font-bold text-ink tracking-tight leading-snug mb-2">
                     {project.title}
-                  </motion.h3>
+                  </h3>
                   <p className="text-[13px] text-muted leading-relaxed line-clamp-3 flex-grow">
                     {project.shortDescription}
                   </p>
@@ -124,7 +113,7 @@ export default function Project() {
                     </svg>
                   </span>
                 </div>
-              </motion.button>
+              </button>
             </motion.article>
             </HoverCard>
           ))}
@@ -136,7 +125,7 @@ export default function Project() {
             href="https://github.com/Khoniv"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl solid-glow text-paper text-sm font-semibold hover:opacity-90 transition-all hover:-translate-y-0.5 hover-glow"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-ink text-paper text-sm font-semibold hover:opacity-90 transition-all hover:-translate-y-0.5"
           >
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
@@ -147,7 +136,7 @@ export default function Project() {
             href="https://www.linkedin.com/in/khonif-zakaria"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-surface border border-border text-sm font-semibold hover:border-ink/40 transition-all hover:-translate-y-0.5 hover-glow"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-surface border border-border text-sm font-semibold hover:border-ink/40 transition-all hover:-translate-y-0.5"
           >
             Connect on LinkedIn
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
@@ -174,30 +163,24 @@ export default function Project() {
                 onClick={() => setIsOpen(null)}
               />
               <motion.div
-                layoutId={`project-card-${uid}-${activeProject.index}`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0, transition: { duration: 0.2 } }}
-                transition={{ type: "spring", damping: 30, stiffness: 300 }}
+                initial={{ opacity: 0, scale: 0.96, y: 16 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.96, y: 16 }}
+                transition={{ type: "spring", damping: 28, stiffness: 300 }}
                 className="relative bg-surface/90 backdrop-blur-2xl border border-border rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col shadow-[0_32px_100px_rgba(0,0,0,0.35)]"
               >
                 <div className="relative aspect-[16/8] w-full overflow-hidden flex-shrink-0">
-                  <motion.div
-                    layoutId={`project-image-${uid}-${activeProject.index}`}
-                    className="absolute inset-0"
-                  >
-                    <Image
-                      src={activeProject.imagePath}
-                      alt={activeProject.title}
-                      fill
-                      className="object-cover object-center"
-                      sizes="(max-width: 768px) 95vw, 640px"
-                    />
-                  </motion.div>
+                  <Image
+                    src={activeProject.imagePath}
+                    alt={activeProject.title}
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 95vw, 640px"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
                   <button
                     onClick={() => setIsOpen(null)}
-                    className="absolute top-4 right-4 p-2 rounded-xl bg-black/40 backdrop-blur text-white hover:bg-black/60 hover:rotate-90 transition-all duration-300 cursor-pointer hover-glow"
+                    className="absolute top-4 right-4 p-2 rounded-xl bg-black/40 backdrop-blur text-white hover:bg-black/60 hover:rotate-90 transition-all duration-300 cursor-pointer"
                     aria-label="Close project details"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
@@ -208,12 +191,9 @@ export default function Project() {
                     <p className="font-mono text-[11px] uppercase tracking-widest text-white/70">
                       {activeProject.category}
                     </p>
-                    <motion.h3
-                      layoutId={`project-title-${uid}-${activeProject.index}`}
-                      className="font-display text-xl sm:text-2xl font-bold text-white tracking-tight mt-1"
-                    >
+                    <h3 className="font-display text-xl sm:text-2xl font-bold text-white tracking-tight mt-1">
                       {activeProject.title}
-                    </motion.h3>
+                    </h3>
                   </div>
                 </div>
 
@@ -257,7 +237,7 @@ export default function Project() {
                       href={activeProject.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 inline-flex justify-center items-center gap-2 text-sm font-semibold solid-glow text-paper py-3 px-4 rounded-xl hover:opacity-90 transition-all hover-glow"
+                      className="flex-1 inline-flex justify-center items-center gap-2 text-sm font-semibold bg-ink text-paper py-3 px-4 rounded-xl hover:opacity-90 transition-colors"
                     >
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
@@ -274,7 +254,7 @@ export default function Project() {
                       href={activeProject.liveDemoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 inline-flex justify-center items-center gap-2 text-sm font-semibold border border-border bg-surface py-3 px-4 rounded-xl hover:border-ink/40 transition-all hover-glow"
+                      className="flex-1 inline-flex justify-center items-center gap-2 text-sm font-semibold border border-border bg-surface py-3 px-4 rounded-xl hover:border-ink/40 transition-colors"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />

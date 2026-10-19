@@ -90,7 +90,7 @@ export default function Hero() {
             <div className="mt-7 flex flex-col sm:flex-row flex-wrap gap-3">
               <button
                 onClick={() => handleScroll("projects")}
-                className="cursor-pointer inline-flex items-center justify-center gap-2 solid-glow text-paper text-sm font-semibold px-6 py-3.5 rounded-xl hover:opacity-90 transition-all duration-300 hover:-translate-y-0.5 hover-glow"
+                className="cursor-pointer inline-flex items-center justify-center gap-2 bg-ink text-paper text-sm font-semibold px-6 py-3.5 rounded-xl hover:opacity-90 transition-all duration-300 hover:-translate-y-0.5 shadow-[0_8px_20px_rgba(22,22,26,0.18)]"
               >
                 View projects
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
@@ -100,7 +100,7 @@ export default function Hero() {
               <a
                 href="/Khonif_Zakaria_CV.pdf"
                 download
-                className="inline-flex items-center justify-center gap-2 bg-surface border border-border text-sm font-semibold px-6 py-3.5 rounded-xl hover:border-ink transition-all duration-300 hover:-translate-y-0.5 hover-glow"
+                className="inline-flex items-center justify-center gap-2 bg-surface border border-border text-sm font-semibold px-6 py-3.5 rounded-xl hover:border-ink transition-all duration-300 hover:-translate-y-0.5"
               >
                 Download CV
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
@@ -120,7 +120,7 @@ export default function Hero() {
                     rel="noopener noreferrer"
                     aria-label={item.name}
                     title={item.name}
-                    className="p-2.5 rounded-xl bg-surface border border-border text-muted hover:text-accent hover:border-accent transition-all duration-300 hover:-translate-y-0.5 hover-glow"
+                    className="p-2.5 rounded-xl bg-surface border border-border text-muted hover:text-accent hover:border-accent transition-all duration-300 hover:-translate-y-0.5"
                   >
                     {item.icon}
                   </a>

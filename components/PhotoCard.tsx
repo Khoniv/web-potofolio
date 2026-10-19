@@ -22,7 +22,7 @@ export default function PhotoCard({ priority = false }: { priority?: boolean }) 
           />
         </span>
         {/* Badge GPA */}
-        <div className="absolute top-4 left-4 z-[2] solid-glow text-paper rounded-xl px-3.5 py-2.5 transition-transform duration-500 group-hover:-translate-y-0.5">
+        <div className="absolute top-4 left-4 z-[2] bg-ink text-paper rounded-xl px-3.5 py-2.5 shadow-lg transition-transform duration-500 group-hover:-translate-y-0.5">
           <p className="font-mono text-[10px] uppercase tracking-widest text-paper/60">GPA</p>
           <p className="font-display font-bold text-sm leading-tight">3.78 / 4.00</p>
         </div>
@@ -36,7 +36,7 @@ export default function PhotoCard({ priority = false }: { priority?: boolean }) 
         </div>
       </GlowCard>
       {/* Kartu degree melayang */}
-      <div className="absolute -bottom-5 -right-2 sm:-right-4 solid-glow text-paper rounded-xl px-4 py-3 transition-all duration-500 group-hover:-translate-y-1 group-hover:rotate-1">
+      <div className="absolute -bottom-5 -right-2 sm:-right-4 bg-ink text-paper rounded-xl px-4 py-3 shadow-[0_12px_36px_rgba(22,22,26,0.28)] transition-all duration-500 group-hover:-translate-y-1 group-hover:rotate-1">
         <p className="font-mono text-[10px] uppercase tracking-widest text-paper/60">Degree</p>
         <p className="font-display font-bold text-sm leading-tight mt-0.5">S.Kom. Informatics</p>
       </div>
