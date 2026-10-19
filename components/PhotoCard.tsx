@@ -22,7 +22,7 @@ export default function PhotoCard({ priority = false }: { priority?: boolean }) 
           />
         </span>
         {/* Badge GPA */}
-        <div className="absolute top-4 left-4 z-[2] bg-surface/70 backdrop-blur-xl border border-border text-ink rounded-xl px-3.5 py-2.5 shadow-lg transition-transform duration-500 group-hover:-translate-y-0.5">
+        <div className="absolute -top-5 -left-2 sm:-left-4 z-[2] bg-surface/70 backdrop-blur-xl border border-border text-ink rounded-xl px-3.5 py-2.5 shadow-lg transition-transform duration-500 group-hover:-translate-y-0.5">
           <p className="font-mono text-[10px] uppercase tracking-widest text-faint">GPA</p>
           <p className="font-display font-bold text-sm leading-tight">3.78 / 4.00</p>
         </div>
