@@ -2,8 +2,6 @@
 import { useState } from "react"
 import { motion } from "motion/react"
 import SectionHeader from "@/components/SectionHeader"
-import { GlowCard } from "@/components/ui/spotlight-card"
-
 interface Tech {
   name: string
   icon: string
@@ -56,58 +54,40 @@ export default function TechStack() {
                   style={isFlipped ? { transform: "rotateY(180deg)" } : undefined}
                 >
                   {/* Depan */}
-                  <span className="absolute inset-0 [backface-visibility:hidden]">
-                    <GlowCard
-                      customSize
-                      glowColor="mono"
-                      backdropBlur={false}
-                      className="h-full w-full text-center transition-shadow duration-300 hover:shadow-[0_12px_32px_rgba(46,75,255,0.18)]"
-                    >
-                      <span className="flex flex-col items-center justify-center gap-3 h-full text-center">
-                        <span className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
-                          {tech.icon ? (
-                            <img
-                              src={tech.icon}
-                              alt=""
-                              aria-hidden="true"
-                              loading="lazy"
-                              className={`w-full h-full object-contain ${tech.darkInvert ? "dark:invert" : ""}`}
-                            />
-                          ) : (
-                            <span className="w-full h-full flex items-center justify-center font-display font-bold text-lg text-accent bg-accent-soft rounded-xl">
-                              {tech.name.charAt(0)}
-                            </span>
-                          )}
+                  <span className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-2xl bg-surface/60 backdrop-blur-md border border-border p-4 text-center [backface-visibility:hidden]">
+                    <span className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
+                      {tech.icon ? (
+                        <img
+                          src={tech.icon}
+                          alt=""
+                          aria-hidden="true"
+                          loading="lazy"
+                          className={`w-full h-full object-contain ${tech.darkInvert ? "dark:invert" : ""}`}
+                        />
+                      ) : (
+                        <span className="w-full h-full flex items-center justify-center font-display font-bold text-lg text-accent bg-accent-soft rounded-xl">
+                          {tech.name.charAt(0)}
                         </span>
-                        <span>
-                          <span className="block text-[13px] sm:text-sm font-semibold text-ink leading-tight">
-                            {tech.name}
-                          </span>
-                          <span className="block font-mono text-[10px] uppercase tracking-widest text-faint mt-1">
-                            {tech.category}
-                          </span>
-                        </span>
+                      )}
+                    </span>
+                    <span>
+                      <span className="block text-[13px] sm:text-sm font-semibold text-ink leading-tight">
+                        {tech.name}
                       </span>
-                    </GlowCard>
+                      <span className="block font-mono text-[10px] uppercase tracking-widest text-faint mt-1">
+                        {tech.category}
+                      </span>
+                    </span>
                   </span>
                   {/* Belakang */}
-                  <span className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                    <GlowCard
-                      customSize
-                      glowColor="mono"
-                      backdropBlur={false}
-                      className="h-full w-full text-center"
-                    >
-                      <span className="flex flex-col items-center justify-center gap-2 h-full text-center">
-                        <span className="font-mono text-[10px] uppercase tracking-widest text-faint">
-                          {tech.category}
-                        </span>
-                        <span className="text-[12px] sm:text-[13px] leading-relaxed text-ink">
-                          {tech.description}
-                        </span>
-                        <span className="font-mono text-[10px] text-faint mt-1">click to flip back</span>
-                      </span>
-                    </GlowCard>
+                  <span className="absolute inset-0 flex flex-col items-center justify-center gap-2 rounded-2xl bg-surface/60 backdrop-blur-md border border-border p-4 text-center [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-faint">
+                      {tech.category}
+                    </span>
+                    <span className="text-[12px] sm:text-[13px] leading-relaxed text-ink">
+                      {tech.description}
+                    </span>
+                    <span className="font-mono text-[10px] text-faint mt-1">click to flip back</span>
                   </span>
                 </div>
               </motion.div>
