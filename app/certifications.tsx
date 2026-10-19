@@ -24,7 +24,7 @@ export default function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.07 }}
-              className="group rounded-2xl bg-surface/60 backdrop-blur-md border border-border p-5 sm:p-6 flex items-start gap-4 hover:border-accent/50 hover:shadow-[0_12px_40px_rgba(46,75,255,0.10)] hover:-translate-y-1 transition-all duration-300"
+              className="group rounded-2xl bg-surface/60 backdrop-blur-md border border-border p-5 sm:p-6 flex items-start gap-4 hover:border-accent/50 hover:shadow-[0_12px_40px_rgba(46,75,255,0.10)] hover:-translate-y-1 transition-all duration-300 glow-border"
               aria-label={`Open certificate: ${cert.title} (Google Drive document, new tab)`}
             >
               <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-accent-soft border border-accent/15 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-paper transition-colors duration-300">

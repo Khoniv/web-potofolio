@@ -54,7 +54,7 @@ export default function TechStack() {
                   style={isFlipped ? { transform: "rotateY(180deg)" } : undefined}
                 >
                   {/* Depan */}
-                  <span className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-2xl bg-surface/60 backdrop-blur-md border border-border p-4 text-center [backface-visibility:hidden]">
+                  <span className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-2xl bg-surface/60 backdrop-blur-md border border-border p-4 text-center [backface-visibility:hidden] transition-all duration-300 glow-border">
                     <span className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
                       {tech.icon ? (
                         <img
@@ -80,7 +80,7 @@ export default function TechStack() {
                     </span>
                   </span>
                   {/* Belakang */}
-                  <span className="absolute inset-0 flex flex-col items-center justify-center gap-2 rounded-2xl bg-surface/60 backdrop-blur-md border border-border p-4 text-center [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                  <span className="absolute inset-0 flex flex-col items-center justify-center gap-2 rounded-2xl bg-surface/60 backdrop-blur-md border border-border p-4 text-center [backface-visibility:hidden] [transform:rotateY(180deg)] transition-all duration-300 glow-border">
                     <span className="font-mono text-[10px] uppercase tracking-widest text-faint">
                       {tech.category}
                     </span>

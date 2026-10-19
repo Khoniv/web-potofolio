@@ -75,7 +75,7 @@ export default function Project() {
             >
               <button
                 onClick={() => setIsOpen(project.index)}
-                className="group w-full text-left cursor-pointer rounded-2xl bg-surface/60 backdrop-blur-md border border-border overflow-hidden hover:border-ink/25 hover:shadow-[0_16px_48px_rgba(22,22,26,0.10)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full"
+                className="group w-full text-left cursor-pointer rounded-2xl bg-surface/60 backdrop-blur-md border border-border overflow-hidden hover:border-ink/25 hover:shadow-[0_16px_48px_rgba(22,22,26,0.10)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full glow-border"
                 aria-label={`View details of ${project.title}`}
               >
                 <div className="relative aspect-[16/10] overflow-hidden bg-paper">

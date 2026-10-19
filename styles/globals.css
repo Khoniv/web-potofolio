@@ -110,6 +110,23 @@ body {
   text-wrap: balance;
 }
 
+/* Lightweight CSS-only glow border for cards (no JS, no layout animation,
+   no backdrop-filter — cheap to hover, no lag).
+   Mono: black glow in light theme, white glow in dark theme.
+   Rides on the element's own transition (target cards use transition-all). */
+.glow-border:hover {
+  border-color: rgb(22 22 26 / 0.6);
+  box-shadow:
+    0 0 20px rgb(22 22 26 / 0.16),
+    0 0 5px rgb(22 22 26 / 0.22);
+}
+.dark .glow-border:hover {
+  border-color: rgb(255 255 255 / 0.6);
+  box-shadow:
+    0 0 22px rgb(255 255 255 / 0.15),
+    0 0 5px rgb(255 255 255 / 0.2);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
