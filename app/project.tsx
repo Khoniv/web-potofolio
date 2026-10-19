@@ -329,7 +329,7 @@ const projectList = [
   },
   {
     index: 2,
-    imagePath: "/images/news5-showcase.svg",
+    imagePath: "/images/news5-showcase.png",
     title: "News-5: Digital News Portal & CMS",
     category: "Web Portal, Laravel 11",
     categoryType: "WEB",
@@ -350,7 +350,7 @@ const projectList = [
   },
   {
     index: 3,
-    imagePath: "/images/parkeazy-showcase.svg",
+    imagePath: "/images/parkeazy-showcase.png",
     title: "ParkEazy: Parking Management System",
     category: "Desktop, C# .NET",
     categoryType: "DESKTOP_3D",
