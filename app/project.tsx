@@ -78,14 +78,14 @@ export default function Project() {
                 customSize
                 glowColor="mono"
                 backdropBlur={false}
-                className="h-full p-0! block! overflow-hidden hover:-translate-y-1.5 transition-transform duration-300"
+                className="h-full p-0! block! hover:-translate-y-1.5 transition-transform duration-300"
               >
               <button
                 onClick={() => setIsOpen(project.index)}
                 className="group w-full h-full text-left cursor-pointer flex flex-col"
                 aria-label={`View details of ${project.title}`}
               >
-                <div className="relative aspect-[16/10] overflow-hidden bg-paper">
+                <div className="relative aspect-[16/10] overflow-hidden bg-paper rounded-t-[14px]">
                   <Image
                     src={project.imagePath}
                     alt={project.title}
@@ -95,7 +95,7 @@ export default function Project() {
                   />
                   <div className="absolute top-3 right-3 flex flex-wrap gap-1.5 justify-end">
                     {project.tech.slice(0, 3).map((tech, i) => (
-                      <span key={i} className="text-[10px] font-mono font-medium bg-surface/90 backdrop-blur text-ink px-2 py-0.5 rounded-md border border-border">
+                      <span key={i} className="text-[10px] font-mono font-semibold bg-surface/70 backdrop-blur-xl text-ink px-2 py-0.5 rounded-md border border-border">
                         {tech}
                       </span>
                     ))}
