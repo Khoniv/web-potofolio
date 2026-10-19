@@ -49,10 +49,11 @@ export default function About() {
                 >
                   <div>
                     <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint mb-2">How I work</p>
-                    <h3 className="font-display text-lg font-bold text-ink mb-2">Clean &amp; structured</h3>
+                    <h3 className="font-display text-lg font-bold text-ink mb-2">Analytical &amp; adaptable</h3>
                     <p className="text-sm text-muted leading-relaxed">
-                      I like solving problems analytically and writing clean, well-structured code.
-                      Comfortable working in agile teams and picking up new tools fast.
+                      I tackle problems with analytical and critical thinking, breaking complex challenges
+                      into solvable parts. AI-literate and adaptable, I learn continuously and thrive in
+                      teams — communicating clearly, managing time well, and obsessing over the details.
                     </p>
                   </div>
                 </GlowCard>

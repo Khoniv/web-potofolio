@@ -84,7 +84,6 @@ export default function Hero() {
             <p className="mt-5 max-w-xl text-muted text-[15px] sm:text-base leading-relaxed">
               Fresh informatics graduate from Universitas Amikom Purwokerto, GPA 3.78.
               I build web apps, mobile apps, desktop systems, and 3D games with Unity.
-              Clean code, delivered on time.
             </p>
 
             <div className="mt-7 flex flex-col sm:flex-row flex-wrap gap-3">
