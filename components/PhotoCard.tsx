@@ -7,7 +7,7 @@ export default function PhotoCard({ priority = false }: { priority?: boolean }) 
       {/* Kartu foto utama */}
       <GlowCard
         customSize
-        glowColor="blue"
+        glowColor="mono"
         className="aspect-[4/5] p-0! group-hover:-translate-y-1.5 group-hover:shadow-[0_24px_60px_rgba(22,22,26,0.22)] transition-all duration-500"
       >
         {/* Foto */}

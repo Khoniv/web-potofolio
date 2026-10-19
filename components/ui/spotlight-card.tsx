@@ -4,7 +4,7 @@ import React, { useEffect, useRef, ReactNode } from 'react';
 interface GlowCardProps {
   children: ReactNode;
   className?: string;
-  glowColor?: 'blue' | 'purple' | 'green' | 'red' | 'orange';
+  glowColor?: 'blue' | 'purple' | 'green' | 'red' | 'orange' | 'mono';
   size?: 'sm' | 'md' | 'lg';
   width?: string | number;
   height?: string | number;
@@ -16,7 +16,8 @@ const glowColorMap = {
   purple: { base: 280, spread: 300 },
   green: { base: 120, spread: 200 },
   red: { base: 0, spread: 200 },
-  orange: { base: 30, spread: 200 }
+  orange: { base: 30, spread: 200 },
+  mono: { base: 0, spread: 0 }
 };
 
 const sizeMap = {
@@ -106,6 +107,9 @@ const GlowCard: React.FC<GlowCardProps> = ({
     /* Spotlight is hover-only: no parked glow at the card corner at rest */
     [data-glow] { --bg-spot-opacity: 0; }
     [data-glow]:hover { --bg-spot-opacity: 0.1; }
+    /* Monochrome glow: black in light theme, white in dark theme */
+    [data-glow-color="mono"] { --saturation: 0; --lightness: 0; }
+    .dark [data-glow-color="mono"] { --lightness: 100; }
     [data-glow]::before,
     [data-glow]::after {
       pointer-events: none;
@@ -171,6 +175,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
       <div
         ref={cardRef}
         data-glow
+        data-glow-color={glowColor}
         style={getInlineStyles()}
         className={`
           ${getSizeClasses()}

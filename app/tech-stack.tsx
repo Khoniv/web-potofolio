@@ -59,7 +59,7 @@ export default function TechStack() {
                   <span className="absolute inset-0 [backface-visibility:hidden]">
                     <GlowCard
                       customSize
-                      glowColor="blue"
+                      glowColor="mono"
                       className="h-full w-full text-center transition-shadow duration-300 hover:shadow-[0_12px_32px_rgba(46,75,255,0.18)]"
                     >
                       <span className="flex flex-col items-center justify-center gap-3 h-full text-center">
@@ -93,7 +93,7 @@ export default function TechStack() {
                   <span className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
                     <GlowCard
                       customSize
-                      glowColor="blue"
+                      glowColor="mono"
                       className="h-full w-full text-center"
                     >
                       <span className="flex flex-col items-center justify-center gap-2 h-full text-center">
