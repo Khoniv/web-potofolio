@@ -26,7 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://khonifzakaria.dev"),
   title: {
-    default: "Khonif Zakaria, S.Kom., Software Engineer",
+    default: "Khonif Zakaria - Portofolio",
     template: "%s | Khonif Zakaria",
   },
   description: "Personal portfolio of Khonif Zakaria. Informatics graduate (S.Kom.) specializing in Next.js, React, Laravel, Flutter, C#, and Unity Engine.",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "/",
-    title: "Khonif Zakaria, S.Kom., Software Engineer",
+    title: "Khonif Zakaria - Portofolio",
     description: "Personal portfolio of Khonif Zakaria. Informatics graduate, Software, Web, Mobile, and Game Developer.",
     siteName: "Khonif Zakaria Portfolio",
     images: [
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Khonif Zakaria, S.Kom., Software Engineer",
+    title: "Khonif Zakaria - Portofolio",
     description: "Personal portfolio of Khonif Zakaria. Informatics graduate, Software, Web, Mobile, and Game Developer.",
     images: ["/images/og-cover.jpg"],
     creator: "@khonifzakaria",
