@@ -93,7 +93,7 @@ const infoItems = [
   { label: "Name", value: "Khonif Zakaria" },
   { label: "Location", value: "Banyumas, Central Java, ID" },
   { label: "Phone / WhatsApp", value: "+62 815 8522 1246", href: "https://wa.me/6281585221246" },
-  { label: "Degree", value: "S.Kom., Informatics (S1)" },
+  { label: "Degree", value: "Informatics (S.Kom.)" },
   { label: "GPA", value: "3.78 / 4.00, Cumlaude" },
   { label: "Email", value: "oniefzk11@gmail.com", href: "mailto:oniefzk11@gmail.com" },
 ]

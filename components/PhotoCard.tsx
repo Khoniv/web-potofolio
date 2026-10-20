@@ -38,7 +38,7 @@ export default function PhotoCard({ priority = false }: { priority?: boolean }) 
       {/* Kartu degree melayang */}
       <div className="absolute -bottom-5 -right-2 sm:-right-4 bg-surface/70 backdrop-blur-xl border border-border text-ink rounded-xl px-4 py-3 shadow-[0_12px_36px_rgba(22,22,26,0.28)] transition-all duration-500 group-hover:-translate-y-1 group-hover:rotate-1">
         <p className="font-mono text-[10px] uppercase tracking-widest text-faint">Degree</p>
-        <p className="font-display font-bold text-sm leading-tight mt-0.5">S.Kom. Informatics</p>
+        <p className="font-display font-bold text-sm leading-tight mt-0.5">Informatics (S.Kom.)</p>
       </div>
     </div>
   )
