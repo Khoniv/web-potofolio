@@ -107,7 +107,7 @@ const experiences = [
     id: 2,
     company: "UKM Inmed, Information Technology Research and Multimedia",
     role: "Programming Division",
-    date: "2023-2024",
+    date: "2023",
     status: "Completed",
     description:
       "Built web, desktop, and mobile systems with a student IT community. Joined architecture discussions, code reviews, and integration testing.",
