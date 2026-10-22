@@ -51,7 +51,7 @@ export default function Hero() {
   }, [subIndex, deleting, index, texts, reducedMotion])
 
   return (
-    <section id="home" className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-14 sm:pb-16 md:pb-20">
+    <section id="home" className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-14 sm:pb-16 md:pb-20 overflow-x-clip">
       {/* Soft accent glow */}
       <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[560px] h-[380px] bg-accent/[0.08] dark:bg-accent/[0.12] blur-[130px] rounded-full" aria-hidden="true" />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
