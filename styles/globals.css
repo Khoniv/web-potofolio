@@ -89,6 +89,18 @@ body {
   background: #b9b9ae;
 }
 
+/* Foto profil: hitam-putih -> berwarna saat hover, HANYA di perangkat yang
+   bisa hover (PC/mouse). Di HP sentuh tidak ada hover, jadi foto langsung
+   berwarna tanpa perlu disentuh. */
+@media (hover: hover) and (pointer: fine) {
+  .photo-bw-hover {
+    filter: grayscale(1);
+  }
+  .group:hover .photo-bw-hover {
+    filter: grayscale(0);
+  }
+}
+
 /* Terminal caret blink (used by hero typewriter) */
 @keyframes blink {
   0%, 100% { opacity: 1; }

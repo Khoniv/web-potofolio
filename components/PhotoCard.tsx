@@ -18,7 +18,7 @@ export default function PhotoCard({ priority = false }: { priority?: boolean }) 
             width={560}
             height={700}
             priority={priority}
-            className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 scale-100 group-hover:scale-[1.04] transition-all duration-700 ease-out"
+            className="w-full h-full object-cover object-top photo-bw-hover scale-100 group-hover:scale-[1.04] transition-all duration-700 ease-out"
           />
         </span>
         {/* Badge GPA */}
