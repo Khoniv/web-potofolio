@@ -34,9 +34,7 @@ export default function About() {
                     <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint mb-2">Profile</p>
                     <h3 className="font-display text-lg font-bold text-ink mb-2">Khonif Zakaria</h3>
                     <p className="text-sm text-muted leading-relaxed">
-                      I graduated in Informatics (S1) from Universitas Amikom Purwokerto with a 3.78 GPA.
-                      I work on web apps, backend services, mobile apps, desktop systems,
-                      and 3D games built with Unity.
+                      I graduated in Informatics (S1) from Universitas Amikom Purwokerto. Committed to delivering scalable and maintainable solutions using software development best practices. Eager to apply my technical skills, learn new technologies, and contribute to innovative software and game development projects.
                     </p>
                   </div>
                 </GlowCard>
