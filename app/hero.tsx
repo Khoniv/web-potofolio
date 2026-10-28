@@ -31,23 +31,32 @@ export default function Hero() {
     }
   }, [texts])
 
+  // Typewriter dengan ritme tetap per fase: mengetik stabil, tahan saat kata
+  // lengkap, hapus stabil, jeda sebentar sebelum kata berikutnya. Tanpa jeda
+  // tahan animasinya terasa glitch karena kata langsung dihapus lagi.
   useEffect(() => {
     if (reducedMotion) return
-    const currentIndex = index % texts.length
-    const timeout = setTimeout(() => {
-      const currentText = texts[currentIndex]
-      if (!deleting && subIndex < currentText.length) {
-        setSubIndex(subIndex + 1)
-      } else if (deleting && subIndex > 0) {
-        setSubIndex(subIndex - 1)
-      } else if (!deleting && subIndex === currentText.length) {
-        setDeleting(true)
-      } else if (deleting && subIndex === 0) {
+    const currentText = texts[index % texts.length]
+    let delay: number
+    let timer: ReturnType<typeof setTimeout>
+
+    if (!deleting && subIndex < currentText.length) {
+      delay = 80
+      timer = setTimeout(() => setSubIndex(subIndex + 1), delay)
+    } else if (!deleting && subIndex === currentText.length) {
+      delay = 1900
+      timer = setTimeout(() => setDeleting(true), delay)
+    } else if (deleting && subIndex > 0) {
+      delay = 34
+      timer = setTimeout(() => setSubIndex(subIndex - 1), delay)
+    } else {
+      delay = 450
+      timer = setTimeout(() => {
         setDeleting(false)
-        setIndex((currentIndex + 1) % texts.length)
-      }
-    }, deleting ? 40 : 90)
-    return () => clearTimeout(timeout)
+        setIndex((index + 1) % texts.length)
+      }, delay)
+    }
+    return () => clearTimeout(timer)
   }, [subIndex, deleting, index, texts, reducedMotion])
 
   return (
