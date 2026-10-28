@@ -91,8 +91,9 @@ export default function Hero() {
             </div>
 
             <p className="mt-5 max-w-xl text-muted text-[15px] sm:text-base leading-relaxed">
-              Fresh informatics graduate from Universitas Amikom Purwokerto, GPA 3.78.
-              I build web apps, mobile apps, desktop systems, and 3D games with Unity.
+              Fresh graduate in Informatics from Universitas Amikom Purwokerto with hands-on experience
+              developing web, mobile, and game applications through academic and personal projects. Eager to apply my technical skills,
+              learn new technologies, and contribute to innovative software and game development projects.
             </p>
 
             <div className="mt-7 flex flex-col sm:flex-row flex-wrap gap-3">
