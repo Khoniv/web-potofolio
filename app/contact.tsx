@@ -20,13 +20,13 @@ export default function Contact() {
               <div className="absolute top-4 left-4 z-10 bg-surface/95 backdrop-blur px-3.5 py-2 rounded-xl border border-border shadow-sm pointer-events-none">
                 <p className="text-[13px] font-semibold text-ink flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                  Banyumas, Central Java
+                  Karangkemiri, Pekuncen, Banyumas
                 </p>
-                <p className="font-mono text-[10px] text-faint mt-0.5">-7.5303° S, 109.2941° E</p>
+                <p className="font-mono text-[10px] text-faint mt-0.5">-7.3516° S, 109.0728° E</p>
               </div>
               <iframe
-                title="Peta lokasi Khonif Zakaria, Banyumas, Jawa Tengah"
-                src="https://maps.google.com/maps?q=Banyumas,Central+Java,Indonesia&t=&z=12&ie=UTF8&iwloc=&output=embed"
+                title="Peta lokasi Khonif Zakaria, Karangkemiri, Pekuncen, Banyumas, Jawa Tengah"
+                src="https://maps.google.com/maps?q=Karangkemiri,Pekuncen,Banyumas,Central+Java,Indonesia&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 className="w-full h-full border-0 grayscale-[35%] contrast-[1.05] dark:grayscale-0 dark:invert-[0.92] dark:hue-rotate-180 dark:contrast-[0.9]"
                 allowFullScreen
                 loading="lazy"
