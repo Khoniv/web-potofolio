@@ -50,8 +50,8 @@ export default function About() {
                     <h3 className="font-display text-lg font-bold text-ink mb-2">Analytical &amp; adaptable</h3>
                     <p className="text-sm text-muted leading-relaxed">
                       I tackle problems with analytical and critical thinking, breaking complex challenges
-                      into solvable parts. AI-literate and adaptable, I learn continuously and thrive in
-                      teams — communicating clearly, managing time well, and obsessing over the details.
+                      into solvable parts. AI literate and adaptable, I learn continuously and thrive in
+                      teams, communicating clearly, managing time well, and obsessing over the details.
                     </p>
                   </div>
                 </GlowCard>
