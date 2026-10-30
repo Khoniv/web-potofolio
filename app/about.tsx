@@ -89,7 +89,7 @@ export default function About() {
 
 const infoItems = [
   { label: "Name", value: "Khonif Zakaria" },
-  { label: "Location", value: "Karangkemiri, Pekuncen, Banyumas, Central Java, ID" },
+  { label: "Location", value: "Banyumas, Central Java, ID" },
   { label: "Phone / WhatsApp", value: "+62 815 8522 1246", href: "https://wa.me/6281585221246" },
   { label: "Email", value: "oniefzk11@gmail.com", href: "mailto:oniefzk11@gmail.com" },
 ]
